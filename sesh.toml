@@ -1,0 +1,2 @@
+[default_session]
+startup_script = "~/dotfiles/new_tmux_session.sh"

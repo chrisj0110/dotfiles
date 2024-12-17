@@ -1,0 +1,9 @@
+--ignore-dir=.git
+--ignore-dir=.svn
+--ignore-dir=build
+--ignore-dir=.mypy_cache
+--ignore-dir=__pycache__
+
+--smart-case
+--column
+

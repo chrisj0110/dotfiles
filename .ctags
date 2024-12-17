@@ -1,0 +1,7 @@
+--recurse=yes
+--exclude=.git
+--exclude=BUILD
+--exclude=*.pyc
+--exclude=.mypy_cache
+--exclude=.pytest_cache
+--exclude=__pycache__

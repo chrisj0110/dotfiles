@@ -1,0 +1,535 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    // toggle zen mode: ctrl-k z
+    // toggle sidebar: ctrl-b
+    // git
+    { // branch (create and checkout)
+        "key": "alt+g b",
+        "command": "git.branchFrom"
+    },
+    { // diff
+        "key": "alt+g d",
+        "command": "git.openChange"
+    },
+    { // stage
+        "key": "alt+g t",
+        "command": "git.stage"
+    },
+    { // status
+        "key": "alt+g s",
+        "command": "gitlens.showQuickRepoStatus"
+    },
+    { // push
+        "key": "alt+g p",
+        "command": "git.push"
+    },
+    { // pull
+        "key": "alt+g l",
+        "command": "git.pull"
+    },
+    // checkout - use UI in lower left
+    // min/max/split terminal
+    // { // min/split -> max
+    //     "key": "ctrl+=",
+    //     "command": "multiCommand.maxTerminal",
+    //     "when": "!terminalFocus"
+    // },
+    // { // max/split -> min
+    //     "key": "ctrl+=",
+    //     "command": "multiCommand.minTerminal",
+    //     "when": "terminalFocus"
+    // },
+    // { // max -> split
+    //     "key": "ctrl+-",
+    //     "command": "workbench.action.toggleMaximizedPanel",
+    //     "when": "terminalFocus"
+    // },
+    // { // min -> split
+    //     "key": "ctrl+-",
+    //     "command": "workbench.action.terminal.focus",
+    //     "when": "!terminalFocus"
+    // },
+    // working decently 2022-02-13
+    // { // hide terminal
+    //     "key": "ctrl+=",
+    //     "command": "multiCommand.hideTerminal",
+    //     "when": "terminalFocus"
+    // },
+    // { // show terminal
+    //     "key": "ctrl+=",
+    //     "command": "multiCommand.showTerminal",
+    //     "when": "!terminalFocus"
+    // },
+    // { // toggle maximized terminal
+    //     "key": "ctrl+-",
+    //     "command": "multiCommand.toggleMaximizedPanel",
+    // },
+    { // new split terminal
+        "key": "ctrl+'",
+        "command": "workbench.action.terminal.new",
+        "when": "terminalFocus"
+    },
+    // toggle focus on split terminal w/ next two sections:
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus"
+    },
+    { // so we can send ctrl-e to terminal https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "editor.action.duplicateSelection"
+    },
+    {
+        "key": "ctrl+shift+v",
+        "command": "python.refactorExtractVariable"
+    },
+    {
+        "key": "ctrl+alt+a",
+        "command": "extension.partialDiff.markSection1"
+    },
+    {
+        "key": "ctrl+alt+b",
+        "command": "extension.partialDiff.markSection2AndTakeDiff"
+    },
+    {
+        "key": "ctrl+alt+c",
+        "command": "markdown.extension.editing.toggleCodeBlock"
+    },
+    // multiCommands:
+    {
+        "key": "ctrl+alt+x",
+        "command": "multiCommand.repeatLastCommand"
+    },
+    {
+        "key": "ctrl+'",
+        "command": "workbench.action.splitEditorDown",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "ctrl+;",
+        "command": "workbench.action.focusNextGroup"
+    },
+    {
+        "key": "ctrl+alt+f",
+        "command": "workbench.action.terminal.focusFind",
+        "when": "terminalFindFocused || terminalFocus"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "-workbench.action.terminal.focusFind",
+        // "when": "terminalFindFocused || terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+g",
+        "command": "workbench.view.scm",
+        "when": "gitlens:enabled && config.gitlens.keymap == 'chorded'"
+    },
+    {
+        "key": "ctrl+shift+g g",
+        "command": "-workbench.view.scm",
+        "when": "gitlens:enabled && config.gitlens.keymap == 'chorded'"
+    },
+    {
+        "key": "ctrl+alt+t",
+        "command": "workbench.action.terminal.runSelectedText"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "extension.selectDoubleQuote",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+k shift+'",
+        "command": "-extension.selectDoubleQuote",
+        "when": "editorFocus"
+    },
+    {
+        "key": "shift+alt+p",
+        "command": "-projectManager.listProjects"
+    },
+    {
+        "key": "ctrl+shift+w",
+        "command": "workbench.view.extension.project-manager"
+    },
+    {
+        "key": "alt+9",
+        "command": "extension.selectParenthesis",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+k shift+9",
+        "command": "-extension.selectParenthesis",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+9",
+        "command": "-workbench.action.openEditorAtIndex9"
+    },
+    {
+        "key": "ctrl+insert",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+alt+g",
+        "command": "workbench.action.terminal.newInActiveWorkspace"
+    },
+    {
+        "key": "ctrl+k ctrl+v",
+        "command": "selectby.pasteClipboard"
+    },
+    {
+        "key": "ctrl+shift+b",
+        "command": "gitlens.toggleFileBlame",
+        "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
+    },
+    {
+        "key": "ctrl+shift+g b",
+        "command": "-gitlens.toggleFileBlame",
+        "when": "editorTextFocus && config.gitlens.keymap == 'chorded' && gitlens:activeFileStatus =~ /blameable/"
+    },
+    {
+        "key": "ctrl+shift+b",
+        "command": "-workbench.action.tasks.build"
+    },
+    {
+        "key": "ctrl+alt+s",
+        "command": "multiCommand.jumpToStartAfterWrapping"
+    },
+    {
+        "key": "alt+g c",
+        "command": "git.checkout"
+    },
+    {
+        "key": "ctrl+alt+;",
+        "command": "-extension.unescapeJson"
+    },
+    {
+        "key": "ctrl+alt+c",
+        "command": "bookmarks.clearFromAllFiles"
+    },
+    {
+        "key": "ctrl+alt+;",
+        "command": "bookmarks.listFromAllFiles"
+    },
+    {
+        "key": "ctrl+alt+l",
+        "command": "-extension.deploy.listen"
+    },
+    {
+        "key": "ctrl+down",
+        "command": "bookmarks.jumpToNext",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+l",
+        "command": "-bookmarks.jumpToNext",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+up",
+        "command": "bookmarks.jumpToPrevious",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+j",
+        "command": "-bookmarks.jumpToPrevious",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+]",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+alt+v",
+        "command": "toggleVim"
+    },
+    {
+        "key": "ctrl+backspace",
+        "command": "deleteInsideWord"
+    },
+    {
+        "key": "ctrl+delete",
+        "command": "editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "-editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+alt+f",
+        "command": "extension.aceJump"
+    },
+    {
+        "key": "ctrl+alt+m",
+        "command": "extension.aceJump.multiChar"
+    },
+    {
+        "key": "ctrl+alt+u",
+        "command": "-extension.uglifyJson"
+    },
+    {
+        "key": "ctrl+alt+u",
+        "command": "multiCommand.runUnitTest"
+    },
+    {
+        "key": "alt+p",
+        "command": "multiCommand.updatedPathToTerminal"
+    },
+    {
+        "key": "ctrl+alt+p",
+        "command": "multiCommand.runActivePythonFile"
+    },
+    {
+        "key": "f6",
+        "command": "search.action.focusNextSearchResult",
+        "when": "hasSearchResult || inSearchEditor"
+    },
+    {
+        "key": "f4",
+        "command": "-search.action.focusNextSearchResult",
+        "when": "hasSearchResult || inSearchEditor"
+    },
+    {
+        "key": "shift+f6",
+        "command": "search.action.focusPreviousSearchResult",
+        "when": "hasSearchResult || inSearchEditor"
+    },
+    {
+        "key": "shift+f4",
+        "command": "-search.action.focusPreviousSearchResult",
+        "when": "hasSearchResult || inSearchEditor"
+    },
+    // {
+    //     "key": "ctrl+-",
+    //     "command": "-workbench.action.zoomOut"
+    // },
+    // {
+    //     "key": "ctrl+=",
+    //     "command": "-workbench.action.zoomIn"
+    // },
+    // {
+    //     "key": "ctrl+=",
+    //     "command": "maximizeterminal.closeMaximizedTerminal",
+    //     "when": "activePanel"
+    // },
+    // {
+    //     "key": "ctrl+`",
+    //     "command": "-maximizeterminal.closeMaximizedTerminal",
+    //     "when": "activePanel"
+    // },
+    // {
+    //     "key": "ctrl+=",
+    //     "command": "maximizeterminal.openMaximizedTerminal",
+    //     "when": "!activePanel && !config.maximizeterminal.useAlternativeKeybinding"
+    // },
+    // {
+    //     "key": "ctrl+`",
+    //     "command": "-maximizeterminal.openMaximizedTerminal",
+    //     "when": "!activePanel && !config.maximizeterminal.useAlternativeKeybinding"
+    // },
+    // {
+    //     "key": "ctrl+-",
+    //     "command": "maximizeterminal.openMinimizedTerminal",
+    //     "when": "!activePanel"
+    // },
+    // {
+    //     "key": "ctrl+`",
+    //     "command": "-maximizeterminal.openMinimizedTerminal",
+    //     "when": "config.maximizeterminal.useAlternativeKeybinding && !activePanel"
+    // },
+    {
+        "key": "ctrl+=",
+        "command": "workbench.action.togglePanel",
+    },
+    {
+        "key": "ctrl+-",
+        "command": "workbench.action.toggleMaximizedPanel",
+    },
+    {
+        "key": "ctrl+shift+r",
+        "command": "-workbench.view.extension.thunder-client"
+    },
+    {
+        "key": "alt+`",
+        "command": "workbench.action.navigateBackInEditLocations"
+    },
+    {
+        "key": "ctrl+f5",
+        "command": "-debug.openView",
+        "when": "!debuggersAvailable"
+    },
+    {
+        "key": "ctrl+f5",
+        "command": "-workbench.action.debug.run",
+        "when": "debuggersAvailable && debugState != 'initializing'"
+    },
+    {
+        "key": "ctrl+f5",
+        "command": "workbench.action.debug.selectandstart"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "-editor.action.insertLineAfter",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+enter",
+        "command": "-workbench.action.terminal.sendSequence",
+        "when": "terminalFocus && terminalShellIntegrationEnabled && !accessibilityModeEnabled && terminalShellType == 'pwsh'"
+    },
+    {
+        "key": "shift+enter",
+        "command": "-interactive.execute",
+        "when": "!notebookKernel && resourceScheme == 'vscode-interactive' || resourceScheme == 'vscode-interactive' && notebookKernel =~ /^ms-toolsai.jupyter\\//"
+    },
+    {
+        "key": "shift+enter",
+        "command": "-python.execSelectionInTerminal",
+        "when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
+    },
+    {
+        "key": "shift+enter",
+        "command": "-jupyter.runcurrentcelladvance",
+        "when": "editorTextFocus && isWorkspaceTrusted && jupyter.hascodecells && !editorHasSelection && !notebookEditorFocused"
+    },
+    {
+        "key": "shift+enter",
+        "command": "jupyter.execSelectionInteractive",
+        "when": "editorTextFocus && isWorkspaceTrusted && !findInputFocussed && !jupyter.webExtension && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
+    },
+    {
+        "key": "shift+enter",
+        "command": "-jupyter.execSelectionInteractive",
+        "when": "editorTextFocus && isWorkspaceTrusted && jupyter.ownsSelection && !findInputFocussed && !jupyter.webExtension && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
+    },
+    {
+        "key": "escape",
+        "command": "-notebook.cell.quitEdit",
+        "when": "inputFocus && notebookEditorFocused && !editorHasMultipleSelections && !editorHasSelection && !editorHoverVisible"
+    },
+    {
+        "key": "escape",
+        "command": "-notebook.cell.quitEdit",
+        "when": "inputFocus && notebookEditorFocused && vim.active && !editorHasSelection && !editorHoverVisible && vim.mode == 'Normal'"
+    },
+    // {
+    //     "key": "ctrl+alt+i",
+    //     "command": "multiCommand.runJupyterBelow"
+    // },
+    // {
+    //     "key": "ctrl+alt+i",
+    //     "command": "jupyter.createnewinteractive"
+    // },
+    {
+        "key": "escape",
+        "command": "-interactive.input.clear",
+        "when": "!LinkedEditingInputVisible && !accessibilityHelpWidgetVisible && !breakpointWidgetVisible && !editorHasMultipleSelections && !editorHasSelection && !editorHoverVisible && !exceptionWidgetVisible && !findWidgetVisible && !inSnippetMode && !isComposing && !markersNavigationVisible && !notificationToastsVisible && !parameterHintsVisible && !renameInputVisible && !selectionAnchorSet && !suggestWidgetVisible && resourceScheme == 'vscode-interactive'"
+    },
+    // {
+    //     "key": "ctrl+alt+l",
+    //     "command": "multiCommand.runJupyterToLine"
+    // },
+    {
+        "key": "ctrl+alt+l",
+        "command": "jupyter.runtoline"
+    },
+    // {
+    //     "key": "ctrl+alt+o",
+    //     "command": "workbench.action.moveEditorToBelowGroup"
+    // },
+    {
+        "key": "ctrl+k ctrl+7",
+        "command": "editor.unfold",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "ctrl+shift+]",
+        "command": "-editor.unfold",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "ctrl+alt+i",
+        "command": "jupyter.createnewinteractive"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-extension.vim_ctrl+p",
+        "when": "editorTextFocus && vim.active && vim.use<C-p> && !inDebugRepl || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
+    },
+    {
+        "key": "ctrl+6",
+        "command": "workbench.action.focusSixthEditorGroup",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "ctrl+6",
+        "command": "-workbench.action.focusSixthEditorGroup"
+    },
+    {
+        "key": "shift+alt+\\",
+        "command": "workbench.action.terminal.split",
+        "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
+    },
+    {
+        "key": "ctrl+shift+5",
+        "command": "-workbench.action.terminal.split",
+        "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
+    },
+    {
+        "key": "shift+alt+\\",
+        "command": "workbench.action.terminal.splitActiveTab",
+        "when": "terminalProcessSupported && terminalTabsFocus"
+    },
+    {
+        "key": "ctrl+shift+5",
+        "command": "-workbench.action.terminal.splitActiveTab",
+        "when": "terminalProcessSupported && terminalTabsFocus"
+    },
+    {
+        "key": "ctrl+alt+d",
+        "command": "workbench.action.moveEditorToBelowGroup"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "-workbench.action.quickOpenNavigateNextInViewPicker",
+        "when": "inQuickOpen && inViewsPicker"
+    },
+    {
+        "key": "ctrl+shift+q",
+        "command": "-workbench.action.quickOpenNavigatePreviousInViewPicker",
+        "when": "inQuickOpen && inViewsPicker"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "-workbench.action.quickOpenView"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "-workbench.action.togglePanel"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpen",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpen"
+    }
+]
