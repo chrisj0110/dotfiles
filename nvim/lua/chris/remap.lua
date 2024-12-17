@@ -343,10 +343,7 @@ end
 
 function Toggle_scratch(vertical)
     local tmux_session = get_tmux_session_name()
-    local scratch_file = "~/scratch.txt"
-    if tmux_session == "pyramid-solitaire" then
-        scratch_file = "~/scratch-pyramid-solitaire.txt"
-    end
+    local scratch_file = "~/scratch-" .. tmux_session .. ".txt"
 
     local buf = vim.fn.bufnr(scratch_file)
     if buf == -1 then
