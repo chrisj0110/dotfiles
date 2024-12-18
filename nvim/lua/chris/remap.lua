@@ -271,17 +271,16 @@ end
 
 function Open_datadog_link()
     -- open current durst line in datadog dashboard
-    local base_url = os.getenv("DATADOG_TEST_HISTORY_URL_START")
-    local end_url = os.getenv("DATADOG_TEST_HISTORY_URL_END")
-    if not base_url or not end_url then
-        print("Error: Missing DATADOG_TEST_HISTORY_URL_START or DATADOG_TEST_HISTORY_URL_END environment variable.")
+    local domain = os.getenv("WORK_DATADOG_DOMAIN")
+    if not domain then
+        print("Error: Missing WORK_DATADOG_DOMAIN environment variable.")
         return
     end
 
     local file_path, line_number = get_file_and_line()
     file_path = file_path:gsub("/", "%%2F"):gsub(".*products", "products")
 
-    local url = base_url .. "tpl_var_testcase_line_num%5B0%5D=" .. line_number .. "&tpl_var_testcase_path%5B0%5D=" .. file_path .. end_url
+    local url = "https://" .. domain .. "/dashboard/nue-gbb-jxy/testcase-history?fromUser=false&refresh_mode=sliding&tpl_var_testcase_line_num%5B0%5D=" .. line_number .. "&tpl_var_testcase_path%5B0%5D=" .. file_path .. "&from_ts=1726575637594&to_ts=1727180437594&live=true"
 
     local open_command = ":silent !open '" .. url:gsub("%%", "\\%%") .. "'"
     vim.cmd(open_command)
