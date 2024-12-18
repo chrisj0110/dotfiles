@@ -3,6 +3,9 @@
 palette = 'catppuccin_mocha'
 # palette = "catppuccin_macchiato"
 
+# to put the time on the first line - see https://starship.rs/config/#default-prompt-format
+format = '$all$time$line_break$character'
+
 # Starship modules
 [character]
 # Note the use of Catppuccin color 'peach'
@@ -17,7 +20,13 @@ style = "bold mauve"
 truncation_length = 4
 style = "bold lavender"
 
-# Disable the package module, hiding it from the prompt completely
+[time]
+disabled = false
+use_12hr = true
+style = "bold subtext1 maroon"
+format = "at 🕙 [$time]($style) "
+time_format = "%-I:%M:%S %p"
+
 [package]
 disabled = true
 
