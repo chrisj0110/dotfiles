@@ -1,5 +1,6 @@
 require('gherkin-tweaks').setup({
     tag = '@cj',
+    auto_save = true,
 })
 
 vim.keymap.set('n', '<leader>mi', require('gherkin-tweaks').isolate_test, { desc = 'Isolate just this gherkin test' })
