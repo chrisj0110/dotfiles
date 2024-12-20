@@ -116,4 +116,7 @@ return require("packer").startup(function(use)
     use({ "sindrets/diffview.nvim" })
 
     use({ "stefandtw/quickfix-reflector.vim" })
+
+    use({ "chrisj0110/gherkin-tweaks" })
+
 end)
