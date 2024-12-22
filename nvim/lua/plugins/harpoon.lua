@@ -7,17 +7,17 @@ return {
 
     vim.keymap.set("n", "<leader>ha", function()
       harpoon:list():add()
-    end)
+    end, { desc = "harpoon add" })
     vim.keymap.set("n", "<leader>hl", function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
-    end)
+    end, { desc = "harpoon list" })
 
     -- Set <leader>1..<leader>9 be my shortcuts to moving to the files
     for _, idx in ipairs({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }) do
       vim.keymap.set("n", string.format("<leader>%d", idx), function()
         harpoon:list():select(idx)
         harpoon:list()._index = idx
-      end)
+      end, { desc = "harpoon switch to file" })
     end
   end,
 }
