@@ -4,3 +4,7 @@
 
 -- Remap Y to behave like yy
 vim.keymap.set("n", "Y", "yy", { desc = "Yank entire line (like yy)" })
+
+-- yank to clipboard
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
