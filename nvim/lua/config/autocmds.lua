@@ -13,6 +13,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   callback = function()
     vim.opt_local.formatoptions:remove("c") -- disable Automatically continue comments when pressing Enter in Insert mode
+    vim.opt_local.formatoptions:remove("r") -- disable Automatically insert the current comment leader after hitting <Enter> in Insert mode.
     vim.opt_local.formatoptions:remove("o") -- disable Allow automatic continuation of comments when using the o or O commands.
   end,
 })
