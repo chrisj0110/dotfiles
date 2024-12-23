@@ -25,15 +25,15 @@ else
     echo "INFO: No pip found, skipping python packages..."
 fi
 
-# fzf
-if ! command -v fzf &> /dev/null
-then
-    if [ ! -d ~/.fzf ]; then
-        echo "Installing fzf..."
-        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-        ~/.fzf/install
-    fi
-fi
+# fzf - trying "brew install fzf" instead
+# if ! command -v fzf &> /dev/null
+# then
+#     if [ ! -d ~/.fzf ]; then
+#         echo "Installing fzf..."
+#         git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+#         ~/.fzf/install
+#     fi
+# fi
 
 # ctags
 cp .ctags ~
