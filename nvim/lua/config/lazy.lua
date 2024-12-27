@@ -28,6 +28,7 @@ require("lazy").setup({
       branch = "harpoon2",
       dependencies = { "nvim-lua/plenary.nvim" },
     },
+    { "sindrets/diffview.nvim" },
     {
       "christoomey/vim-tmux-navigator",
       cmd = {
