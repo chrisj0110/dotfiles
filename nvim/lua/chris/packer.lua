@@ -16,19 +16,15 @@ return require("packer").startup(function(use)
 
     use({"benfowler/telescope-luasnip.nvim"})
 
-    -- use("Mofiqul/dracula.nvim")
-
     use { "catppuccin/nvim", as = "catppuccin" }
 
     use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
-    -- use("nvim-treesitter/playground")
     use({
         "nvim-treesitter/nvim-treesitter-textobjects",
         after = "nvim-treesitter",
         requires = "nvim-treesitter/nvim-treesitter",
     })
 
-    -- use("theprimeagen/harpoon")
     use {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
@@ -56,28 +52,11 @@ return require("packer").startup(function(use)
 
     use({ "echasnovski/mini.comment", branch = "stable" })
 
-    -- use({ "akinsho/toggleterm.nvim", tag = "*" })
-
-    use("natecraddock/workspaces.nvim")
-
-    -- can be used to format on save, which might conflict with rust-analyzer, etc
-    -- use("nvimtools/none-ls.nvim")
-
-    -- autoformat for rust
-    -- use({ "rust-lang/rust.vim" })
-
-    -- use({
-    --     "goolord/alpha-nvim",
-    --     requires = { "nvim-tree/nvim-web-devicons" },
-    -- })
-
     use({ "nvim-tree/nvim-web-devicons"  }) -- something needs this
 
     use({ "nvim-lualine/lualine.nvim" })
 
     use({ "lewis6991/gitsigns.nvim" })
-
-    use({ "godlygeek/tabular" })
 
     use({
         "L3MON4D3/LuaSnip",
@@ -87,27 +66,7 @@ return require("packer").startup(function(use)
         run = "make install_jsregexp"
     })
 
-    -- use({
-    --     "NeogitOrg/neogit",
-    --     requires = { { "nvim-lua/plenary.nvim" } },
-    -- })
-
     use({ "christoomey/vim-tmux-navigator" }) -- TODO: can map something to :TmuxNavigateLeft, etc
-
-    -- slow startup-time and rarely used
-    -- use({
-    --     "princejoogie/dir-telescope.nvim",
-    --     -- telescope.nvim is a required dependency
-    --     requires = {"nvim-telescope/telescope.nvim"},
-    --     config = function()
-    --         require("dir-telescope").setup({
-    --             -- these are the default options set
-    --             hidden = true,
-    --             no_ignore = false,
-    --             show_preview = true,
-    --         })
-    --     end,
-    -- })
 
     use({ "shumphrey/fugitive-gitlab.vim" })
 
