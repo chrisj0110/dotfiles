@@ -185,7 +185,9 @@ function Toggle_scratch(vertical)
             vim.cmd('set nosplitright')
             vim.cmd('vertical resize 70')
         else
+            vim.cmd('set nosplitbelow')
             vim.cmd('silent! split ' .. scratch_file)
+            vim.cmd('set splitbelow')
             vim.cmd('resize 15')
         end
     else
@@ -203,7 +205,9 @@ function Toggle_scratch(vertical)
             vim.cmd('set nosplitright')
             vim.cmd('vertical resize 70')
         else
+            vim.cmd('set nosplitbelow')
             vim.cmd('split | buffer ' .. buf)
+            vim.cmd('set splitbelow')
             vim.cmd('resize 15')
         end
     end

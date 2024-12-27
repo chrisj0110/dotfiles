@@ -24,6 +24,8 @@ vim.opt.termguicolors = true
 
 vim.opt.isfname:append("@-@")
 
+vim.opt.splitbelow = false
+
 -- skipping while I try lazyvim defaults:
 -- vim.opt.smartindent = true
 -- vim.opt.scrolloff = 8
