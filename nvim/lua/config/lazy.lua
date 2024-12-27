@@ -20,6 +20,8 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import/override with your plugins
     { import = "plugins" },
+    {"tpope/vim-fugitive"},
+    {"shumphrey/fugitive-gitlab.vim"},
     {
       "ThePrimeagen/harpoon",
       branch = "harpoon2",
