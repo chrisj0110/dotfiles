@@ -119,4 +119,12 @@ return require("packer").startup(function(use)
 
     use({ "chrisj0110/gherkin-tweaks" })
 
+    use({
+        "kdheepak/lazygit.nvim",
+        -- optional for floating window border decoration
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+    })
+
 end)
