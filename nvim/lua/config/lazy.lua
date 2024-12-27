@@ -29,6 +29,8 @@ require("lazy").setup({
       dependencies = { "nvim-lua/plenary.nvim" },
     },
     { "sindrets/diffview.nvim" },
+    { "stefandtw/quickfix-reflector.vim" },
+    { "chrisj0110/gherkin-tweaks" },
     {
       "christoomey/vim-tmux-navigator",
       cmd = {
