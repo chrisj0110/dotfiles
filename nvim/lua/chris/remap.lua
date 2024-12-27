@@ -2,9 +2,6 @@ vim = vim  -- so that we only get one info message here, instead of warnings eve
 
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<leader>E", ":e .<CR>")
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
-
 vim.keymap.set("n", "'", "`")
 
 -- not sure if this is needed, but tab was switching to a different buffer for me at one point:
