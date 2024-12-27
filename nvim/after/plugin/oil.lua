@@ -5,6 +5,7 @@ require("oil").setup({
         "size",
         "mtime",
     },
+    prompt_save_on_select_new_entry = true,
     use_default_keymaps = false,
     keymaps = {
         ["g?"] = { "actions.show_help", mode = "n" },
