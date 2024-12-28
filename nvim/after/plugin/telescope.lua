@@ -52,6 +52,7 @@ vim.api.nvim_set_keymap('i', '<c-]><c-l>', '<space><cmd>Telescope luasnip<CR>', 
 
 local telescope = require('telescope')
 telescope.load_extension('luasnip')
+telescope.load_extension('harpoon') -- ":Telescope harpoon marks"
 
 local actions = require('telescope.actions')
 telescope.setup {
