@@ -43,7 +43,6 @@ vim.keymap.set("n", "<leader>ti", function()
     })
 end, { noremap = true, desc = "TIL grep" })
 
-vim.api.nvim_set_keymap('n', '<leader>cd', ':Telescope workspaces<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>tr', ':Telescope buffers sort_mru=true<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>to', ':Telescope oldfiles sort_mru=true<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>tg', ':Telescope registers<CR>', { noremap = true })
@@ -52,7 +51,6 @@ vim.api.nvim_set_keymap('n', '<leader>tk', ':Telescope keymaps<CR>', { noremap =
 vim.api.nvim_set_keymap('i', '<c-]><c-l>', '<space><cmd>Telescope luasnip<CR>', { noremap = true })
 
 local telescope = require('telescope')
-telescope.load_extension("workspaces")
 telescope.load_extension('luasnip')
 
 local actions = require('telescope.actions')
