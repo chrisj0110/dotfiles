@@ -8,6 +8,7 @@ local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
 require("mason-lspconfig").setup {
+    -- note: pin specific versions like "rust_analyzer@2024-12-23"
     ensure_installed = { "lua_ls", "gopls", "pylsp", "rust_analyzer", "bashls", "yamlls", "jsonls", "marksman" },
     -- pyright doesn't work b/c it wants npm
 }
