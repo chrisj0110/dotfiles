@@ -40,3 +40,6 @@ vim.opt.cursorline = true
 -- Preserve existing line ending on the last line
 vim.opt.fixendofline = false
 
+-- TJ's setup: https://www.youtube.com/watch?v=22mrSjknDHI
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.shortmess:append "c"
