@@ -4,4 +4,6 @@ vim.filetype.add({
   },
 })
 
+require("config.lazy")
+
 require("chris")

@@ -46,9 +46,6 @@ vim.api.nvim_set_keymap("n", "<leader>mu", '-/^translations.json$<cr><cr>G?{<cr>
 -- check translation
 vim.api.nvim_set_keymap("n", "<leader>mc", 'vf|?[^ ]<cr>"tymT<leader>re"<c-r>t"', { noremap = false })
 
--- tabularize pipes in cucumber file
--- vim.keymap.set("n", "<leader>mp", "mt{/Examples:<cr>/|<cr>V}:Tabularize /|<CR>'t", { noremap = false })
-
 -- replace dashes with space in current line
 vim.keymap.set("n", "<leader>sc", ":silent s/-/ /g<CR>", { noremap = false })
 
