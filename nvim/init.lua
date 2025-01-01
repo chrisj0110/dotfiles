@@ -5,5 +5,5 @@ vim.filetype.add({
 })
 
 require("config.lazy")
-
-require("chris")
+require("config.set")
+require("config.remap")
