@@ -15,6 +15,7 @@ return {
                     "gopls",
                     "jsonls",
                     "lua_ls",
+                    "marksman",
                     "rust_analyzer",
                     "yamlls",
                 },
@@ -93,6 +94,8 @@ return {
                     },
                 },
             })
+
+            lspconfig.marksman.setup({})
 
             vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
                 pattern = "*.gitlab-ci*.{yml,yaml}",
