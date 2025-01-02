@@ -41,8 +41,35 @@ vim.api.nvim_set_keymap("n", "<leader>mn", "u''j mi", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>mx", ":g/^\\s*@cj\\s*$/d<cr>:w<esc>", { noremap = false })
 
 -- add translation
-vim.api.nvim_set_keymap("n", "<leader>mt", 'vf|?[^ ]<cr>"tymT<leader>e/^translations.json$<cr><cr>G?{<cr>V%YP%A,<esc>2j$hhvi""tPjhdi"jdi":w<cr>\'T', { noremap = false })
-vim.api.nvim_set_keymap("n", "<leader>mu", '-/^translations.json$<cr><cr>G?{<cr>V%YP%a,<esc>2j$hhvi""tPjhdi"jdi":w<cr>\'T', { noremap = false })
+vim.keymap.set("n", "<leader>mt", function()
+    local buffer_dir = vim.fn.expand('%:p:h')
+    local file_path = buffer_dir .. "/translations.json"
+    if vim.fn.filereadable(file_path) == 0 then
+        file_path = buffer_dir .. "/../translations.json"
+        if vim.fn.filereadable(file_path) == 0 then
+            print("Error: translations.json not found")
+            return
+        end
+    end
+
+    -- grab the utterance under the cursor and set a mark T
+    vim.cmd('normal! vf|?[^ ]<cr>"tymT')
+    -- open translations file
+    vim.cmd("e " .. file_path)
+    vim.defer_fn(function() -- gotta sleep a bit here
+        -- go to bottom of file, find the last translation section
+        vim.cmd("normal! G")
+        vim.cmd("?{")
+        -- select the translation block and copy/paste it, and add a trailing comma
+        vim.cmd("normal! V%YP%A,")
+        -- replace current en-us translation with the one we yanked from the feature file, and remove values for other languages
+        vim.cmd("normal! 2j$hhvi\"\"tPjhdi\"jdi\"")
+        -- save translations.json and go back to mark T
+        vim.cmd(":w")
+        vim.cmd("normal! 'T")
+    end, 100) -- ms
+end, { desc = "add utterance under cursor to translations file" })
+
 -- check translation
 vim.api.nvim_set_keymap("n", "<leader>mc", 'vf|?[^ ]<cr>"tymT<leader>re"<c-r>t"', { noremap = false })
 
