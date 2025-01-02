@@ -8,7 +8,16 @@ return {
             require("mason").setup({})
             require("mason-lspconfig").setup {
                 -- note: pin specific versions like "rust_analyzer@2024-12-23"
-                ensure_installed = { "lua_ls", "gopls", "rust_analyzer", "bashls", "yamlls", "jsonls" },
+                ensure_installed = {
+                    "bashls",
+                    "cucumber_language_server",
+                    "gitlab_ci_ls",
+                    "gopls",
+                    "jsonls",
+                    "lua_ls",
+                    "rust_analyzer",
+                    "yamlls",
+                },
             }
 
             local lspconfig = require('lspconfig')
