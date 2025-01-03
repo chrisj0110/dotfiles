@@ -4,8 +4,6 @@ return {
     dependencies = { { "nvim-lua/plenary.nvim" } },
     config = function()
         local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<C-p>', builtin.find_files, {}) -- just local files
-        vim.keymap.set('n', '<leader>ff', builtin.git_files, {}) -- all files in repo
 
         -- smart-case:
         local function my_smartcase_search(search_string)
