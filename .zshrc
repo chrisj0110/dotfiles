@@ -251,8 +251,7 @@ export clear=$'\033[0m'
 # NL=$'\n'
 # PS1='$NL%B%F{blue}%3~%f%b %F{yellow}${vcs_info_msg_0_}$NL%B%(?.%F{green}.%F{red})%(!.#.>)%f%b '
 
-# disabling this, trying "brew install fzf" instead
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
