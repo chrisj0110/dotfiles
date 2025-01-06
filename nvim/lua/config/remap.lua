@@ -52,21 +52,44 @@ vim.keymap.set("n", "<leader>mt", function()
         end
     end
 
-    -- grab the utterance under the cursor and set a mark T
-    vim.cmd('normal! vf|?[^ ]<cr>"tymT')
+    -- remember where we are so we can come back
+    local bufnr = vim.api.nvim_get_current_buf()
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    local line = vim.api.nvim_get_current_line()
+    local col = cursor[2]
+
+    -- find the next pipe after the cursor
+    local pipe_col = line:find("|", col + 1)
+
+    -- find the last non-space character before the pipe
+    local end_col = pipe_col - 1
+    while end_col > col and line:sub(end_col, end_col):match("%s") do
+        end_col = end_col - 1
+    end
+
+    -- grab the text and put it in register t
+    local selected_text = line:sub(col + 1, end_col)
+    vim.fn.setreg('t', selected_text)
+
     -- open translations file
     vim.cmd("e " .. file_path)
     vim.defer_fn(function() -- gotta sleep a bit here
         -- go to bottom of file, find the last translation section
         vim.cmd("normal! G")
         vim.cmd("?{")
+
         -- select the translation block and copy/paste it, and add a trailing comma
         vim.cmd("normal! V%YP%A,")
+
         -- replace current en-us translation with the one we yanked from the feature file, and remove values for other languages
         vim.cmd("normal! 2j$hhvi\"\"tPjhdi\"jdi\"")
-        -- save translations.json and go back to mark T
+
+        -- save translations.json
         vim.cmd(":w")
-        vim.cmd("normal! 'T")
+
+        -- go back to original location
+        vim.api.nvim_set_current_buf(bufnr)
+        vim.api.nvim_win_set_cursor(0, cursor)
     end, 100) -- ms
 end, { desc = "add utterance under cursor to translations file" })
 
