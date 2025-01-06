@@ -127,6 +127,14 @@ return {
             vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
             vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', { noremap = true, silent = true })
             vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true })
+            vim.api.nvim_set_keymap('n', '[e', ":lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })<CR>", { noremap = true, silent = true })
+            vim.api.nvim_set_keymap('n', ']e', ":lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })<CR>", { noremap = true, silent = true })
+            vim.api.nvim_set_keymap('n', '[w', ":lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN })<CR>", { noremap = true, silent = true })
+            vim.api.nvim_set_keymap('n', ']w', ":lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARN })<CR>", { noremap = true, silent = true })
+            vim.api.nvim_set_keymap('n', '[h', ":lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.HINT })<CR>", { noremap = true, silent = true })
+            vim.api.nvim_set_keymap('n', ']h', ":lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.HINT })<CR>", { noremap = true, silent = true })
+            vim.api.nvim_set_keymap('n', '[i', ":lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.INFO })<CR>", { noremap = true, silent = true })
+            vim.api.nvim_set_keymap('n', ']i', ":lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.INFO })<CR>", { noremap = true, silent = true })
 
         end
     }
