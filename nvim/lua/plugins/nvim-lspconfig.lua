@@ -25,13 +25,22 @@ return {
             local util = require("lspconfig/util")
             local capabilities = require('blink.cmp').get_lsp_capabilities()
 
+            -- see also lazyvim rust-analyzer config: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/rust.lua
             lspconfig.rust_analyzer.setup {
                 capabilities = capabilities,
                 settings = {
                     ['rust-analyzer'] = {
                         cargo = {
-                            noDefaultFeatures = true
-                        }
+                            allFeatures = true,
+                            loadOutDirsFromCheck = true,
+                            buildScripts = {
+                                enable = true,
+                            },
+                        },
+                        -- Add clippy lints for Rust
+                        checkOnSave = {
+                            command = "clippy",
+                        },
                     }
                 }
             }
