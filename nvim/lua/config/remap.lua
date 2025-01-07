@@ -123,10 +123,6 @@ vim.keymap.set("n", "<leader>sf", function()
     jump_to_log_line("")
 end, { desc = "jump to file and line found in current .log line"})
 
-vim.keymap.set("n", "<leader>sk", function()
-    jump_to_log_line("~/dev/koios/rust/koios")
-end, { desc = "jump to koios file and line found in current .log line"})
-
 ---- end macros
 
 
