@@ -63,8 +63,8 @@ return {
                 },
                 mappings = {
                     i = {
-                        ["<C-j>"] = actions.move_selection_next,
-                        ["<C-k>"] = actions.move_selection_previous,
+                        ["<C-n>"] = actions.move_selection_next,
+                        ["<C-p>"] = actions.move_selection_previous,
                         -- ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
                         -- ["<C-f>"] = actions.results_scrolling_down,
                         -- ["<C-b>"] = actions.results_scrolling_up,
@@ -72,8 +72,8 @@ return {
                         ["<C-l>"] = actions.send_to_qflist + actions.open_qflist,
                     },
                     n = {
-                        ["<C-j>"] = actions.move_selection_next,
-                        ["<C-k>"] = actions.move_selection_previous,
+                        ["<C-n>"] = actions.move_selection_next,
+                        ["<C-p>"] = actions.move_selection_previous,
                         -- ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
                         -- ["<C-f>"] = actions.results_scrolling_down,
                         -- ["<C-b>"] = actions.results_scrolling_up,
