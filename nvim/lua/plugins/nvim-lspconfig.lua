@@ -37,6 +37,10 @@ return {
                                 enable = true,
                             },
                         },
+                        -- don't expand macros
+                        procMacro = {
+                            enable = false,
+                        },
                         -- Add clippy lints for Rust
                         checkOnSave = {
                             command = "clippy",
