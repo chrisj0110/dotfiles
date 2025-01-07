@@ -41,6 +41,9 @@ return {
                         checkOnSave = {
                             command = "clippy",
                         },
+                        diagnostics = {
+                            debounce = 150, -- to reduce frequent updates
+                        },
                     }
                 }
             }
