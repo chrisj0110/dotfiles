@@ -49,7 +49,7 @@ return {
         local i = ls.insert_node
         -- local t = ls.text_node
         -- local c = ls.choice_node
-        local rep = require("luasnip.extras").rep
+        -- local rep = require("luasnip.extras").rep
 
         -- Note: use rep(1) to repeat the first param so it auto-updates
         ls.add_snippets("cucumber", {
@@ -57,12 +57,6 @@ return {
         })
 
         ls.add_snippets("rust", {
-            s("p",
-                fmt("dbg!(\"{}\"{});{}", { i(1), i(2), i(0) })
-            ),
-            s("d",
-                fmt("dbg!(&{});{}", { i(1), i(0) })
-            ),
             s("tr",
                 fmt("tracing::{}!(\"{}\"{});", { i(2, "info"), i(1), i(3) })
             ),
@@ -112,43 +106,6 @@ return {
                 )
             )
         })
-
-        ls.add_snippets("go", {
-            s("p",
-                fmt("fmt.Println(\"{}\"{}){}", { i(1), i(2), i(0) })
-            ),
-            s("d",
-                fmt("fmt.Println(\"{}: \", {}){}", { i(1, "var"), rep(1), i(0) })
-            )
-        })
-
-        ls.add_snippets("sh", {
-            s("p",
-                fmt("echo \"{}\"{}", { i(1), i(0) })
-            ),
-            s("d",
-                fmt("echo \"{}: ${}\"{}", { i(1, "var"), rep(1), i(0) })
-            )
-        })
-
-        ls.add_snippets("make", {
-            s("p",
-                fmt("$(info {}){}", { i(1), i(0) })
-            ),
-            s("d",
-                fmt("$(info {} is $({})){}", { i(1, "var"), rep(1), i(0) })
-            )
-        })
-
-        ls.add_snippets("lua", {
-            s("p",
-                fmt("print(\"{}\"{}){}", { i(1), i(2), i(0) })
-            ),
-            s("d",
-                fmt("print(\"{} is: \" .. {}){}", { i(1, "var"), rep(1), i(0) })
-            )
-        })
-
 
         -- not using the following because `Telescope luasnip` isn't using the UI picker:
         -- vim.keymap.set("i", "<c-u>", require("luasnip.extras.select_choice"))
