@@ -82,6 +82,11 @@ return {
                     },
                 },
             },
+            extensions = {
+                frecency = {
+                    db_safe_mode = false, -- Disable safe mode
+                },
+            },
         }
     end
 }
