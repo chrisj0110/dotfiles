@@ -97,7 +97,7 @@ vim.keymap.set("n", "<leader>mt", function()
 end, { desc = "add utterance under cursor to translations file" })
 
 -- check translation
-vim.api.nvim_set_keymap("n", "<leader>mc", 'vf|?[^ ]<cr>"tymT<leader>re"<c-r>t"', { noremap = false })
+vim.api.nvim_set_keymap("n", "<leader>mc", 'vf|?[^ ]<cr>"ty:let @/ = ""<cr>mT<leader>re"<c-r>t"', { noremap = false })
 
 -- replace dashes with space in current line
 vim.keymap.set("n", "<leader>sc", ":silent s/-/ /g<CR>", { noremap = false })
