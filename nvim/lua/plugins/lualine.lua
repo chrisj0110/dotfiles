@@ -62,7 +62,7 @@ return {
                 lualine_c = {{'filename', path = 1}}, -- 0 = just filename, 1 = relative path
                 --     lualine_x = {'encoding', 'fileformat', 'filetype'},
                 lualine_x = {{ Harpoon_files }},
-            --     lualine_y = {'progress'},
+                lualine_y = {'searchcount', 'progress'},
             --     lualine_z = {'location'}
             },
         })

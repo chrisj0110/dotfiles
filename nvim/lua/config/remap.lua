@@ -268,7 +268,7 @@ function Cargo_build_in_tmux_pane()
   vim.fn.system(cmd)
 end
 
-vim.api.nvim_set_keymap('n', '<leader>cb', ':lua Cargo_build_in_tmux_pane()<CR>', { noremap = true, silent = true, desc = "cargo build current project" })
+vim.api.nvim_set_keymap('n', '<leader>b', ':lua Cargo_build_in_tmux_pane()<CR>', { noremap = true, silent = true, desc = "cargo build current project" })
 
 function Search_and_open_in_qf()
     local term = vim.fn.input('Search for: ')
@@ -351,4 +351,15 @@ end
 
 vim.api.nvim_set_keymap('n', '[s', ':lua Toggle_scratch(false)<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', ']s', ':lua Toggle_scratch(true)<CR>', { noremap = true, silent = true })
+
+-- clear noice, search
+vim.keymap.set("n", "<leader>c", ":Noice dismiss<cr>:set nohlsearch<cr>", {desc = "clear noice, search"})
+-- re-enable hlsearch on the next search
+vim.api.nvim_create_autocmd("CmdlineEnter", {
+  pattern = { "/", "?" },
+  callback = function()
+    vim.opt.hlsearch = true
+  end,
+  desc = "Re-enable search highlight on new search",
+})
 
