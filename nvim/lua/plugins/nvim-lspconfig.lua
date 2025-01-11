@@ -63,6 +63,14 @@ return {
 
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { 'vim' }, -- Add 'vim' to the recognized globals
+                            disable = { "redundant-assign" }, -- Ignore the redundant assignment warning
+                        },
+                    },
+                },
             })
 
             lspconfig.gopls.setup({
