@@ -346,6 +346,3 @@ end
 
 vim.api.nvim_set_keymap('n', '[s', ':lua Toggle_scratch(false)<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', ']s', ':lua Toggle_scratch(true)<CR>', { noremap = true, silent = true })
-
--- clear noice
-vim.keymap.set("n", "<leader>c", ":Noice dismiss<cr>", {desc = "clear noice"})
