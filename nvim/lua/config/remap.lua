@@ -340,7 +340,12 @@ function Toggle_scratch(vertical)
 
     -- Restore cursor position if it was saved
     if vim.api.nvim_buf_is_loaded(buf) and cursor_positions[buf] then
-        vim.api.nvim_win_set_cursor(0, cursor_positions[buf])
+        if vim.api.nvim_buf_line_count(buf) > cursor_positions[buf] then
+            -- it wants to go to a line that is greater than the number of lines in the buffer, so go to the last line
+            vim.api.nvim_win_set_cursor(0, vim.api.nvim_buf_line_count(buf))
+        else
+            vim.api.nvim_win_set_cursor(0, cursor_positions[buf])
+        end
     end
 end
 
