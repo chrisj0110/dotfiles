@@ -1,2 +1,4 @@
 theme = catppuccin-mocha
 font-size = 15
+# on mac this needs Privacy->Accessibility permissions in the system settings
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
