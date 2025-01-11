@@ -281,6 +281,9 @@ vim.keymap.set("i", '<c-r><c-r>', '<c-r>"')
 vim.keymap.set("i", '<c-r>r', '<c-r>"')
 
 -- ]s to pull down scratch buffer, [s to close it
+-- Save cursor position per buffer
+local cursor_positions = {}
+
 local function get_tmux_session_name()
     -- Run the tmux command to get the session name
     local handle = io.popen("tmux display-message -p '#S'")
@@ -293,23 +296,6 @@ local function get_tmux_session_name()
     -- Trim any trailing whitespace
     session_name = session_name:gsub("%s+", "")
     return session_name
-end
-
-function Go_to_last_edit()
-    local dot_register = vim.fn.getreg('.')
-    local dot_mark = vim.fn.getpos("'.")
-
-    if dot_register == '' then
-        -- not modified in current session
-        return
-    end
-
-    if dot_mark[2] <= 0 or dot_mark[2] > vim.fn.line('$') then
-        -- line for last edit location doesn't exist
-        return
-    end
-
-    vim.cmd("normal! '.")
 end
 
 function Toggle_scratch(vertical)
@@ -328,6 +314,11 @@ function Toggle_scratch(vertical)
             vim.cmd('resize 15')
         end
     else
+        -- Save cursor position before closing the buffer
+        if vim.api.nvim_buf_is_loaded(buf) then
+            cursor_positions[buf] = vim.api.nvim_win_get_cursor(0)
+        end
+
         -- Close the window containing the scratch file if it's open
         for _, win in ipairs(vim.api.nvim_list_wins()) do
             if vim.api.nvim_win_get_buf(win) == buf then
@@ -346,7 +337,11 @@ function Toggle_scratch(vertical)
             vim.cmd('resize 15')
         end
     end
-    Go_to_last_edit()
+
+    -- Restore cursor position if it was saved
+    if vim.api.nvim_buf_is_loaded(buf) and cursor_positions[buf] then
+        vim.api.nvim_win_set_cursor(0, cursor_positions[buf])
+    end
 end
 
 vim.api.nvim_set_keymap('n', '[s', ':lua Toggle_scratch(false)<CR>', { noremap = true, silent = true })
