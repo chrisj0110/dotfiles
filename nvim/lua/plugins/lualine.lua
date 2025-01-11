@@ -21,7 +21,7 @@ return {
 
         local harpoon = require('harpoon')
 
-        function Harpoon_files()
+        local function Harpoon_files()
           local contents = {}
           local marks_length = harpoon:list():length()
           local current_file_path = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":.")
@@ -48,6 +48,27 @@ return {
           return table.concat(contents)
         end
 
+        local function custom_searchcount()
+            -- Temporarily enable `hlsearch` to get the search count
+            local hlsearch_enabled = vim.o.hlsearch
+            vim.o.hlsearch = true
+
+            -- Get the search count using `:echo` output
+            local ok, search_stats = pcall(vim.fn.searchcount, { recompute = true })
+            vim.o.hlsearch = hlsearch_enabled -- Restore `hlsearch` state
+
+            if not ok or not search_stats then
+                return ""
+            end
+
+            -- Format the search count
+            local total = search_stats.total
+            local current = search_stats.current
+            if total == 0 then
+                return ""
+            end
+            return string.format("%d/%d", current, total)
+        end
 
         lualine.setup({
             options = {
@@ -62,7 +83,7 @@ return {
                 lualine_c = {{'filename', path = 1}}, -- 0 = just filename, 1 = relative path
                 --     lualine_x = {'encoding', 'fileformat', 'filetype'},
                 lualine_x = {{ Harpoon_files }},
-                lualine_y = {'searchcount', 'progress'},
+                lualine_y = {custom_searchcount, 'progress'},
             --     lualine_z = {'location'}
             },
         })

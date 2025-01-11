@@ -347,14 +347,5 @@ end
 vim.api.nvim_set_keymap('n', '[s', ':lua Toggle_scratch(false)<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', ']s', ':lua Toggle_scratch(true)<CR>', { noremap = true, silent = true })
 
--- clear noice, search
-vim.keymap.set("n", "<leader>c", ":Noice dismiss<cr>:set nohlsearch<cr>", {desc = "clear noice, search"})
--- re-enable hlsearch on the next search
-vim.api.nvim_create_autocmd("CmdlineEnter", {
-  pattern = { "/", "?" },
-  callback = function()
-    vim.opt.hlsearch = true
-  end,
-  desc = "Re-enable search highlight on new search",
-})
-
+-- clear noice
+vim.keymap.set("n", "<leader>c", ":Noice dismiss<cr>", {desc = "clear noice"})
