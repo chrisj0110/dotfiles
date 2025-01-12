@@ -1,5 +1,7 @@
 return {
     "chrisj0110/gherkin-tweaks",
+    -- dir = "~/gherkin-tweaks",
+    -- dev = true,
     config = function()
         require('gherkin-tweaks').setup({
             tag = '@cj',
