@@ -1,5 +1,7 @@
 return {
     "chrisj0110/notes-slider",
+    -- dir = "~/notes-slider",
+    -- dev = true,
     config = function()
         require('notes-slider').setup({
             horizontal_split_size = 15,
