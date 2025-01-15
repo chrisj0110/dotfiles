@@ -3,6 +3,18 @@ return {
 
     opts = {
         move_to_debugline = true,
+        keymaps = {
+            normal = {
+                plain_below = "<leader>gp",
+                plain_above = "<leader>gP",
+                variable_below = "<leader>gv",
+                variable_above = "<leader>gV",
+            },
+            visual = {
+                variable_below = "<leader>gv",
+                variable_above = "<leader>gV",
+            },
+        },
     },
 
     dependencies = {
