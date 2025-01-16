@@ -49,7 +49,7 @@ return {
         vim.api.nvim_set_keymap('n', '<leader>tg', ':Telescope registers<CR>', { noremap = true })
         vim.api.nvim_set_keymap('n', '<leader>tl', ':Telescope luasnip<CR>', { noremap = true })
         vim.api.nvim_set_keymap('n', '<leader>tk', ':Telescope keymaps<CR>', { noremap = true })
-        vim.api.nvim_set_keymap('i', '<c-]><c-l>', '<space><cmd>Telescope luasnip<CR>', { noremap = true })
+        -- vim.api.nvim_set_keymap('i', '<c-]><c-l>', '<space><cmd>Telescope luasnip<CR>', { noremap = true })
 
         local telescope = require('telescope')
         telescope.load_extension('luasnip')
