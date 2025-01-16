@@ -18,7 +18,7 @@ return {
     -- See the full "keymap" documentation for information on defining your own keymap.
     keymap = {
         preset = 'default',
-        ['<c-s>'] = { function(cmp) cmp.show({ providers = { 'copilot' } }) end },
+        ['<c-]>'] = { function(cmp) cmp.show({ providers = { 'copilot' } }) end },
     },
 
     appearance = {
