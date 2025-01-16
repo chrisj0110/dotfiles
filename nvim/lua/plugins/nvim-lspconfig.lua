@@ -16,6 +16,7 @@ return {
                     "jsonls",
                     "lua_ls",
                     "marksman",
+                    "pylsp",
                     "rust_analyzer",
                     "yamlls",
                 },
@@ -123,6 +124,18 @@ return {
                         schemas = {
                             -- Use the GitLab CI schema for .gitlab-ci.yml files
                             ["https://json.schemastore.org/gitlab-ci.json"] = "/*.gitlab-ci.yml",
+                        },
+                    },
+                },
+            })
+
+            lspconfig.pylsp.setup({
+                settings = {
+                    pylsp = {
+                        plugins = {
+                            pycodestyle = {
+                                ignore = {"E501"},
+                            },
                         },
                     },
                 },
