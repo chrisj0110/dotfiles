@@ -44,11 +44,24 @@ return {
             })
         end, { noremap = true, desc = "TIL grep" })
 
+        -- grep through open buffers
+        local function grep_open_buffers()
+            local buffers = vim.tbl_filter(function(bufnr)
+                return vim.api.nvim_buf_is_loaded(bufnr) and vim.fn.bufname(bufnr) ~= ""
+            end, vim.api.nvim_list_bufs())
+
+            builtin.live_grep({
+                search_dirs = vim.tbl_map(vim.api.nvim_buf_get_name, buffers)
+            })
+        end
+        vim.keymap.set('n', '<leader>tb', grep_open_buffers, { desc = "Grep Open Buffers" })
+
         vim.api.nvim_set_keymap('n', '<leader>tr', ':Telescope buffers sort_mru=true<CR>', { noremap = true })
         vim.api.nvim_set_keymap('n', '<leader>to', ':Telescope oldfiles sort_mru=true<CR>', { noremap = true })
         vim.api.nvim_set_keymap('n', '<leader>tg', ':Telescope registers<CR>', { noremap = true })
         vim.api.nvim_set_keymap('n', '<leader>tl', ':Telescope luasnip<CR>', { noremap = true })
         vim.api.nvim_set_keymap('n', '<leader>tk', ':Telescope keymaps<CR>', { noremap = true })
+        vim.api.nvim_set_keymap('n', '<leader>ts', ':Telescope git_status<CR>', { noremap = true })
         -- vim.api.nvim_set_keymap('i', '<c-]><c-l>', '<space><cmd>Telescope luasnip<CR>', { noremap = true })
 
         local telescope = require('telescope')
