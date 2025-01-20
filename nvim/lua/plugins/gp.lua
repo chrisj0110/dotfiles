@@ -30,6 +30,23 @@ return {
         }
         require("gp").setup(conf)
 
+        -- gp finder:
+        vim.keymap.set('n', '<leader>gf', function()
+            vim.cmd("vsplit")
+            require("telescope.builtin").live_grep({
+                prompt_title = "Search gp chats",
+                ---@diagnostic disable-next-line: undefined-field
+                cwd = require("gp").config.chat_dir,
+                default_text = "topic: ",
+                vimgrep_arguments = {
+                    "rg",
+                    "--column",
+                    "--smart-case",
+                    "--sortr=modified",
+                },
+            })
+        end, { noremap = true, desc = "GPT Prompt chat finder" })
+
         vim.keymap.set("n", "<leader>gg", ":GpChatToggle<cr>", {desc = "GPT Prompt toggle"})
         vim.keymap.set("n", "<leader>gn", ":GpChatNew vsplit<cr>", {desc = "GPT Prompt new"})
         vim.keymap.set("v", "<leader>gn", ":<C-u>'<,'>GpChatNew vsplit<cr>", {desc = "GPT Prompt new"})
