@@ -56,6 +56,23 @@ return {
         end
         vim.keymap.set('n', '<leader>tb', grep_open_buffers, { desc = "Grep Open Buffers" })
 
+        -- gp search:
+        vim.keymap.set('n', '<leader>gf', function()
+            -- vim.cmd("vsplit") -- can open in virtual split using <c-v> in telescope
+            require("telescope.builtin").live_grep({
+                prompt_title = "Search gp chats",
+                ---@diagnostic disable-next-line: undefined-field
+                cwd = require("gp").config.chat_dir,
+                default_text = "topic: ",
+                vimgrep_arguments = {
+                    "rg",
+                    "--column",
+                    "--smart-case",
+                    "--sortr=modified",
+                },
+            })
+        end, { noremap = true, desc = "Search gp chats" })
+
         vim.api.nvim_set_keymap('n', '<leader>tr', ':Telescope buffers sort_mru=true<CR>', { noremap = true })
         vim.api.nvim_set_keymap('n', '<leader>to', ':Telescope oldfiles sort_mru=true<CR>', { noremap = true })
         vim.api.nvim_set_keymap('n', '<leader>tg', ':Telescope registers<CR>', { noremap = true })
