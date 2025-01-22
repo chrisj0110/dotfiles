@@ -128,6 +128,7 @@ alias format-json-clipboard="pbpaste | jq | pbcopy"
 export GITHUB_EMAIL="45946825+chrisj0110@users.noreply.github.com"
 
 alias git-github-name-and-email='git config user.name "chrisj0110" && git config user.email "45946825+chrisj0110@users.noreply.github.com"'
+alias git-commit-empty-and-push='git commit --allow-empty -m "empty commit for new pipeline" && git push'
 
 alias my-continue="echo -n continue && read _nothing"
 
