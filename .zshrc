@@ -140,8 +140,8 @@ function gcp-deploy-app-engine() {
 alias gcp-switch-personal="gcloud config configurations activate personal"
 alias gcp-switch-default="gcloud config configurations activate default"
 function gcp-deploy-cloud-function() {
-    # pass in $FUNCTION_NAME and GCP project id
-    gcloud functions deploy $1 --gen2 --runtime=python39 --entry-point=main --memory=256MB --trigger-http --allow-unauthenticated --project $2
+    # pass in GCP project id and function name
+    gcloud functions deploy $2 --gen2 --runtime=python39 --entry-point=main --memory=256MB --trigger-http --allow-unauthenticated --project $1
 }
 
 # git branches
