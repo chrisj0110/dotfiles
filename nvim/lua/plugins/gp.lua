@@ -24,7 +24,7 @@ return {
                     chat = true,
                     command = true,
                     model = { model = "gpt-4-turbo" },
-                    system_prompt = "Answer any query with just: Sure thing..",
+                    system_prompt = require("gp.defaults").chat_system_prompt,
                 },
             },
         }
@@ -54,5 +54,8 @@ return {
         vim.keymap.set("n", "<leader>go", ":GpAppend<cr>", {desc = "GPT Prompt append (with prompt)"})
         vim.keymap.set("v", "<leader>go", ":GpRewrite<cr>", {desc = "GPT Prompt rewrite selected text (with prompt)"})
         vim.keymap.set("v", "<leader>gi", ":GpImplement<cr>", {desc = "GPT Prompt rewrite selected text (no prompt)"})
+
+        -- until I figure out how to make this the default prompt:
+        vim.keymap.set("n", "<leader>gq", "iDon't give me any explanations or extra context, just give me the answer. If I need more information I will ask in a follow-up question.<esc>", {desc = "GPT Prompt quick answer"})
     end,
 }
