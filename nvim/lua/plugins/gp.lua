@@ -56,6 +56,6 @@ return {
         vim.keymap.set("v", "<leader>gi", ":GpImplement<cr>", {desc = "GPT Prompt rewrite selected text (no prompt)"})
 
         -- until I figure out how to make this the default prompt:
-        vim.keymap.set("n", "<leader>gq", "iDon't give me any explanations or extra context, just give me the answer. If I need more information I will ask in a follow-up question.<esc>", {desc = "GPT Prompt quick answer"})
+        vim.keymap.set("n", "<leader>gq", "iDon't give me any explanations or extra context, just give me the answer. If I need more information I will ask in a follow-up question.<cr><cr>", {desc = "GPT Prompt quick answer"})
     end,
 }
