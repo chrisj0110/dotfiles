@@ -160,7 +160,7 @@ vim.keymap.set("i", "<s-tab>", "<c-d>")
 -- vim.keymap.set("n", "<leader>d", ":cd %:h<CR>")
 
 -- create a new file if it doesn't exist
-vim.keymap.set("n", "<C-w>f", ":execute 'split ' . expand(\"<cfile>\")<CR>")
+vim.keymap.set("n", "<C-w>f", ":execute 'split ' . expand(\"<cfile>\")<CR>:resize 15<CR>")
 vim.keymap.set("n", "gf", ":execute 'edit ' . expand(\"<cfile>\")<CR>")
 
 -- repeatable next and dot command
@@ -264,11 +264,11 @@ vim.api.nvim_set_keymap('n', '<leader>md', ':lua Open_datadog_link()<CR>', { nor
 function Cargo_build_in_tmux_pane()
   local path = vim.fn.expand('%:p')
   path = string.gsub(path, '/src/.*', '')
-  local cmd = 'tmux split-window -v "cd ' .. path .. ' && cargo build --manifest-path Cargo.toml ; exec $SHELL"'
+  local cmd = 'tmux split-window -v -l 15 "cd ' .. path .. ' && cargo build --manifest-path Cargo.toml ; exec $SHELL"'
   vim.fn.system(cmd)
 end
 
-vim.api.nvim_set_keymap('n', '<leader>b', ':lua Cargo_build_in_tmux_pane()<CR>', { noremap = true, silent = true, desc = "cargo build current project" })
+vim.api.nvim_set_keymap('n', '<leader>cb', ':lua Cargo_build_in_tmux_pane()<CR>', { noremap = true, silent = true, desc = "cargo build current project" })
 
 function Search_and_open_in_qf()
     local term = vim.fn.input('Search for: ')
@@ -280,3 +280,7 @@ vim.api.nvim_set_keymap('n', '<leader>tc', ':lua Search_and_open_in_qf()<CR>', {
 vim.keymap.set("i", '<c-r><c-r>', '<c-r>"')
 vim.keymap.set("i", '<c-r>r', '<c-r>"')
 
+-- Setup split window sizes
+vim.opt.equalalways = false -- Disable automatic resizing of splits
+vim.keymap.set("n", '<leader>ss', ':split | wincmd J | resize 15<cr>', { desc = "split a smaller window" })
+vim.keymap.set("n", '<leader>sv', ':split | wincmd L | vertical resize 70<cr>', { desc = "split a smaller vertical window" })

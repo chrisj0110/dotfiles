@@ -42,7 +42,7 @@ return {
         -- end, {silent = true})
 
         -- why doesn't this work?
-        vim.keymap.set("n", "<leader>ss", ":source ~/.config/nvim/after/plugin/luasnip.lua<CR>")
+        -- vim.keymap.set("n", "<leader>ss", ":source ~/.config/nvim/after/plugin/luasnip.lua<CR>")
 
         local s = ls.s
         local fmt = require("luasnip.extras.fmt").fmt
