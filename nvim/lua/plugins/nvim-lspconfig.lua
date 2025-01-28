@@ -123,8 +123,12 @@ return {
                     yaml = {
                         schemas = {
                             -- Use the GitLab CI schema for .gitlab-ci.yml files
-                            ["https://json.schemastore.org/gitlab-ci.json"] = "/*.gitlab-ci.yml",
+                            ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = "/*.gitlab-ci.yml",
                         },
+                        customTags = {
+                            -- not sure why `!reference` is being reported as an error
+                            "!reference sequence"
+                        }
                     },
                 },
             })
