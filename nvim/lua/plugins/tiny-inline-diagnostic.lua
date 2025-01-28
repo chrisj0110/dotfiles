@@ -8,10 +8,10 @@ return {
             options = {
                 multilines = {
                     -- Enable multiline diagnostic messages
-                    enabled = false,
+                    enabled = true,
 
                     -- Always show messages on all lines for multiline diagnostics
-                    always_show = false,
+                    always_show = true,
                 },
             },
         })
