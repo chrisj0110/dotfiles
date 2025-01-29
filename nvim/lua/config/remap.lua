@@ -270,11 +270,12 @@ end
 
 vim.api.nvim_set_keymap('n', '<leader>rb', ':lua Dispatch_rust_crate()<CR>', { noremap = true, silent = true, desc = "build rust crate from current file in Dispatch" })
 
-function Search_and_open_in_qf()
-    local term = vim.fn.input('Search for: ')
-    vim.cmd('vimgrep /' .. term .. '/ % | copen')
-end
-vim.api.nvim_set_keymap('n', '<leader>tc', ':lua Search_and_open_in_qf()<CR>', { noremap = true, silent = true, desc = "search buffer and send to qf" })
+-- did I ever use this?
+-- function Search_and_open_in_qf()
+--     local term = vim.fn.input('Search for: ')
+--     vim.cmd('vimgrep /' .. term .. '/ % | copen')
+-- end
+-- vim.api.nvim_set_keymap('n', '<leader>tc', ':lua Search_and_open_in_qf()<CR>', { noremap = true, silent = true, desc = "search buffer and send to qf" })
 
 -- shortcut to default register in insert mode
 vim.keymap.set("i", '<c-r><c-r>', '<c-r>"')
