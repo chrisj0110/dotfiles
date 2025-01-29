@@ -261,14 +261,14 @@ end
 vim.api.nvim_set_keymap('n', '<leader>md', ':lua Open_datadog_link()<CR>', { noremap = true, desc = "view test in datadog dashboard" })
 
 
-function Cargo_build_in_tmux_pane()
+function Dispatch_rust_crate()
   local path = vim.fn.expand('%:p')
   path = string.gsub(path, '/src/.*', '')
-  local cmd = 'tmux split-window -v -l 15 "cd ' .. path .. ' && cargo build --manifest-path Cargo.toml ; exec $SHELL"'
-  vim.fn.system(cmd)
+  path = string.gsub(path, '.*/', '')
+  vim.cmd("Dispatch cargo build -p " .. path)
 end
 
-vim.api.nvim_set_keymap('n', '<leader>cb', ':lua Cargo_build_in_tmux_pane()<CR>', { noremap = true, silent = true, desc = "cargo build current project" })
+vim.api.nvim_set_keymap('n', '<leader>rb', ':lua Dispatch_rust_crate()<CR>', { noremap = true, silent = true, desc = "build rust crate from current file in Dispatch" })
 
 function Search_and_open_in_qf()
     local term = vim.fn.input('Search for: ')
