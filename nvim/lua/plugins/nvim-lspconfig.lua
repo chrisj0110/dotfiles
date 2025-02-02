@@ -37,16 +37,16 @@ return {
                 settings = {
                     ['rust-analyzer'] = {
                         cargo = {
-                            allFeatures = true,
+                            -- allFeatures = true, -- compile all feature-gated code
                             loadOutDirsFromCheck = true,
                             buildScripts = {
                                 enable = true,
                             },
                         },
-                        -- don't expand macros
-                        procMacro = {
-                            enable = false,
-                        },
+                        -- set to false to not expand macros
+                        -- procMacro = {
+                        --     enable = true,
+                        -- },
                         -- Add clippy lints for Rust
                         checkOnSave = {
                             command = "clippy",
