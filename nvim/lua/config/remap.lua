@@ -139,7 +139,7 @@ vim.keymap.set('n', '<leader>fm', function()
 end, { desc = "format file" })
 
 -- substitute current word throughout file
-vim.keymap.set("n", "<leader>su", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+-- vim.keymap.set("n", "<leader>su", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- shell commands
 vim.keymap.set("n", "<leader>sp", ":!echo % | pbcopy<CR>", { noremap = true })

@@ -30,24 +30,6 @@ return {
         }
         require("gp").setup(conf)
 
-        -- gp finder:
-        vim.keymap.set('n', '<leader>gf', function()
-            vim.cmd("vsplit")
-            vim.cmd("on")
-            require("telescope.builtin").live_grep({
-                prompt_title = "Search gp chats",
-                ---@diagnostic disable-next-line: undefined-field
-                cwd = require("gp").config.chat_dir,
-                default_text = "topic: ",
-                vimgrep_arguments = {
-                    "rg",
-                    "--column",
-                    "--smart-case",
-                    "--sortr=modified",
-                },
-            })
-        end, { noremap = true, desc = "GPT Prompt chat finder" })
-
         local add_default_prompt = function()
             local default_prompt = "Don't give me any explanations or extra context, just give me the answer. If I need more information I will ask in a follow-up question."
             vim.cmd("startinsert")
