@@ -113,7 +113,7 @@ bindkey -v # vi mode on command line
 export NVIM_CONFIG="~/.config/nvim"
 alias vi="nvim"
 
-setopt ignore_eof  # don't exit with control-d
+# setopt ignore_eof  # don't exit with control-d
 
 export LESS='-RFX'  # F for dont go to pager unless more than 1 screen; X for don't clear the screen after git diff, etc
 
