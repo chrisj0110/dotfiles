@@ -29,7 +29,6 @@
   "snacks.nvim": { "branch": "main", "commit": "5e3af693bd5a29db3c5a9307fb86ded78670fc29" },
   "telescope-luasnip.nvim": { "branch": "master", "commit": "07a2a2936a7557404c782dba021ac0a03165b343" },
   "telescope.nvim": { "branch": "master", "commit": "d90956833d7c27e73c621a61f20b29fdb7122709" },
-  "vim-dispatch": { "branch": "master", "commit": "a2ff28abdb2d89725192db5b8562977d392a4d3f" },
   "vim-fugitive": { "branch": "master", "commit": "b068eaf1e6cbe35d1ac100d435cd7f7b74a5c87d" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "vim-tmux-navigator": { "branch": "master", "commit": "d847ea942a5bb4d4fab6efebc9f30d787fd96e65" }

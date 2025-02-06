@@ -10,8 +10,6 @@ return {
     "shumphrey/fugitive-gitlab.vim",
 
     "tpope/vim-surround",
-
-    "tpope/vim-dispatch",
 }
 
 
