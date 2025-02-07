@@ -36,30 +36,13 @@ return {
             vim.api.nvim_put({default_prompt, "", ""}, "l", true, true)
         end
 
-        vim.keymap.set("n", "<leader>gg", function()
-            vim.cmd("GpChatToggle")
-            vim.cmd("on")
-        end, {desc = "GPT Prompt toggle"})
-
         vim.keymap.set("n", "<leader>gn", function()
-          vim.cmd("GpChatNew vsplit")
-          vim.cmd("on")
-          add_default_prompt()
+            vim.cmd("GpChatNew tabnew")
+            add_default_prompt()
         end, {desc = "GPT Prompt new"})
+        vim.keymap.set("n", "<leader>gg", "<cmd>GpChatToggle tabnew<cr>", {desc = "GPT Prompt toggle"})
+        vim.keymap.set("v", "<leader>g]", ":<C-u>'<,'>GpChatPaste tabnew<cr>", {desc = "GPT Prompt paste"})
 
-        vim.keymap.set("v", "<leader>gn", function()
-          vim.cmd([[execute ":'<,'>GpChatNew vsplit"]])
-          vim.cmd("on")
-          add_default_prompt()
-        end, {desc = "GPT Prompt new"})
-
-        vim.keymap.set("v", "<leader>g[", function()
-          vim.cmd([[execute ":'<,'>GpChatPaste vsplit"]])
-          vim.cmd("on")
-        end, {desc = "GPT Prompt paste"})
-
-        vim.keymap.set("n", "<leader>go", ":GpAppend<cr>", {desc = "GPT Prompt append (with prompt)"})
-        vim.keymap.set("v", "<leader>go", ":GpRewrite<cr>", {desc = "GPT Prompt rewrite selected text (with prompt)"})
         vim.keymap.set("v", "<leader>gi", ":GpImplement<cr>", {desc = "GPT Prompt rewrite selected text (no prompt)"})
 
         -- until I figure out how to make this the default prompt:
