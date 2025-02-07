@@ -213,8 +213,8 @@ vim.api.nvim_set_keymap("n", "<leader>dd", ":lua Diddate()<CR>", { noremap = tru
 -- vim.cmd('set shell=C:/Progra~1/Git/usr/bin/bash.exe')
 
 -- next/prev quickfix items
-vim.api.nvim_set_keymap("n", "<c-f>", ":cnext<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<c-b>", ":cprev<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<c-n>", ":cnext<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<c-p>", ":cprev<CR>", { noremap = true })
 
 -- next/prev quickfix lists
 vim.api.nvim_set_keymap("n", "]q", ":cnewer<CR>", { noremap = true })
