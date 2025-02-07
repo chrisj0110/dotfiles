@@ -41,6 +41,13 @@ return {
       { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
       -- grep
       { "<leader>sg", function() Snacks.picker.grep() end, desc = "Grep" },
+      { "<leader>sG", function()
+          vim.ui.input({ prompt = "Enter file glob: " }, function(glob)
+              if glob then
+                  require("snacks").picker.grep({ glob = glob })
+              end
+          end)
+      end, desc = "Grep in file pattern" },
       { "<leader>st", function() Snacks.picker.grep({ dirs = { "~/til" } }) end, desc = "Grep TIL" },
       { "<leader>gF", function() Snacks.picker.grep({ dirs = { require("gp").config.chat_dir } }) end, desc = "Grep GP Chat File" },
       { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
