@@ -103,8 +103,8 @@ vim.api.nvim_set_keymap("n", "<leader>mc", 'vf|?[^ ]<cr>"ty:let @/ = ""<cr>mT<le
 vim.keymap.set("n", "<leader>sc", ":silent s/-/ /g<CR>", { noremap = false })
 
 -- format json from clipboard to clipboard
-vim.keymap.set("n", "<leader>sj", ":silent !pbpaste | jq | pbcopy<CR>")
-vim.keymap.set("n", "<leader>sx", ":silent !pbpaste | xmllint --format - | pbcopy<CR>")
+vim.keymap.set("n", "<leader>fj", ":silent !pbpaste | jq | pbcopy<CR>")
+vim.keymap.set("n", "<leader>fx", ":silent !pbpaste | xmllint --format - | pbcopy<CR>")
 
 local function jump_to_log_line(root_file_path)
     local current_line = vim.api.nvim_get_current_line()
