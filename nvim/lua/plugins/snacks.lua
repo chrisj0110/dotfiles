@@ -39,6 +39,7 @@ return {
       { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git Status" },
       { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
       { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
+      { "<leader>gB", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
       -- grep
       { "<leader>sg", function() Snacks.picker.grep() end, desc = "Grep" },
       { "<leader>sG", function()
