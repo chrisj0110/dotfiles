@@ -1,5 +1,14 @@
 return {
     "stevearc/oil.nvim",
+    lazy = true,
+    keys = {
+        {
+            "<leader>e", "<cmd>Oil<cr>", {desc = "Open buffer's dir in Oil"}
+        },
+        {
+            "<leader>E", "<cmd>Oil .<cr>", {desc = "Open cwd in Oil"}
+        },
+    },
     config = function()
         require("oil").setup({
             columns = {
@@ -41,9 +50,6 @@ return {
                 end,
             },
         })
-
-        vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>", {desc = "Open buffer's dir in Oil"})
-        vim.keymap.set("n", "<leader>E", "<cmd>Oil .<cr>", {desc = "Open cwd in Oil"})
     end
 }
 

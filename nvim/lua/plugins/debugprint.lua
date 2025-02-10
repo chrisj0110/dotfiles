@@ -1,5 +1,6 @@
 return {
     "andrewferrier/debugprint.nvim",
+    event = "VeryLazy", -- Can't lazy load - required to make line highlighting work before debugprint is first used
 
     opts = {
         move_to_debugline = true,
@@ -22,6 +23,5 @@ return {
                                 -- and line highlighting (optional)
     },
 
-    lazy = false, -- Required to make line highlighting work before debugprint is first used
     version = "*", -- Remove if you DON'T want to use the stable version
 }
