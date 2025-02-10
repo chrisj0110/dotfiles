@@ -5,10 +5,6 @@ return {
     dependencies = { { "nvim-lua/plenary.nvim" } },
     cmd = "Telescope",
     config = function()
-        -- local builtin = require('telescope.builtin')
-
-        -- vim.api.nvim_set_keymap('n', '<leader>tl', ':Telescope luasnip<CR>', { noremap = true })
-
         local telescope = require('telescope')
         telescope.load_extension('luasnip')
 
