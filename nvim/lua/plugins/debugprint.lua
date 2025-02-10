@@ -5,14 +5,14 @@ return {
         move_to_debugline = true,
         keymaps = {
             normal = {
-                plain_below = "<leader>gp",
-                plain_above = "<leader>gP",
-                variable_below = "<leader>gv",
-                variable_above = "<leader>gV",
+                plain_below = "gp",
+                plain_above = "gP",
+                variable_below = "gv",
+                variable_above = "gV",
             },
             visual = {
-                variable_below = "<leader>gv",
-                variable_above = "<leader>gV",
+                variable_below = "gv",
+                variable_above = "gV",
             },
         },
     },
