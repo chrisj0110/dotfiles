@@ -6,8 +6,6 @@ return {
     "christoomey/vim-tmux-navigator",
 
     "shumphrey/fugitive-gitlab.vim",
-
-    "tpope/vim-surround",
 }
 
 
