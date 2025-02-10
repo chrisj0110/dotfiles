@@ -1,5 +1,7 @@
 return {
     "nvim-treesitter/nvim-treesitter",
+    event = "VeryLazy",
+    lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
     },

@@ -1,5 +1,7 @@
 return {
     "nvim-lualine/lualine.nvim",
+    lazy = true,
+    event = "VeryLazy",
     config = function()
         local setup, lualine = pcall(require, "lualine")
         if not setup then return end
