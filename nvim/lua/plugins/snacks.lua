@@ -6,6 +6,16 @@ return {
           frecency = true,
           history_bonus = true,
       },
+      sources = {
+          -- https://github.com/folke/snacks.nvim/discussions/605#discussioncomment-11875984
+          git_log_file = {
+              confirm = function(picker, item)
+                  vim.notify("Copied " .. item.commit .. " to clipboard")
+                  vim.fn.setreg("+", item.commit)
+                  picker:close()
+              end,
+          },
+      },
       -- have to copy an entire layout apparently: https://github.com/folke/snacks.nvim/discussions/468
       layouts = {
           default = {
