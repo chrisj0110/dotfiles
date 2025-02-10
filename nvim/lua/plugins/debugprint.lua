@@ -7,12 +7,12 @@ return {
             normal = {
                 plain_below = "gp",
                 plain_above = "gP",
-                variable_below = "gv",
-                variable_above = "gV",
+                -- variable_below = "gv",
+                -- variable_above = "gV",
             },
             visual = {
-                variable_below = "gv",
-                variable_above = "gV",
+                variable_below = "gp",
+                variable_above = "gP",
             },
         },
     },
