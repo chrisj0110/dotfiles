@@ -1,6 +1,4 @@
 return {
-    "benfowler/telescope-luasnip.nvim",
-
     { "echasnovski/mini.comment", branch = "stable" },
 
     "nvim-tree/nvim-web-devicons",
