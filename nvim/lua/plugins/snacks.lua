@@ -8,6 +8,23 @@ return {
       },
       sources = {
           -- https://github.com/folke/snacks.nvim/discussions/605#discussioncomment-11875984
+          git_branches = {
+              actions = {
+                  copy_branch_name = function(picker, item)
+                      vim.notify("Copied " .. item.branch .. " to clipboard")
+                      vim.fn.setreg("+", item.branch)
+                      picker:close()
+                      -- print(vim.inspect(item))
+                  end
+              },
+              win = {
+                  input = {
+                      keys = {
+                          ["<c-c>"] = { "copy_branch_name", mode = { "i", "n" } },
+                      },
+                  },
+              },
+          },
           git_log_file = {
               confirm = function(picker, item)
                   vim.notify("Copied " .. item.commit .. " to clipboard")
