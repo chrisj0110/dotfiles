@@ -3,6 +3,8 @@ return {
     { "williamboman/mason-lspconfig.nvim" },
     {
         "neovim/nvim-lspconfig",
+        lazy = true,
+        event = { "FileType rust", "FileType sh", "FileType cucumber", "FileType lua", "FileType go", "FileType yaml", "FileType python", "FileType markdown" },
         dependencies = { 'saghen/blink.cmp' },
         config = function()
             require("mason").setup({})
