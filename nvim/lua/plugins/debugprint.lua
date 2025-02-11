@@ -4,7 +4,7 @@ return {
 
     opts = {
         move_to_debugline = true,
-        print_tag = "",
+        print_tag = "CJ",
         highlight_lines = false,
         keymaps = {
             normal = {
