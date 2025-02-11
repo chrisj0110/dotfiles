@@ -1,6 +1,6 @@
 return {
   "folke/snacks.nvim",
-  lazy = true,
+  event = "VeryLazy",
   opts = {
     picker = {
       matcher = {
