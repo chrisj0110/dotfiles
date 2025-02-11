@@ -4,6 +4,8 @@ return {
 
     opts = {
         move_to_debugline = true,
+        print_tag = "",
+        highlight_lines = false,
         keymaps = {
             normal = {
                 plain_below = "gp",
@@ -18,10 +20,10 @@ return {
         },
     },
 
-    dependencies = {
-        "echasnovski/mini.nvim" -- Needed for :ToggleCommentDebugPrints(NeoVim 0.9 only)
-                                -- and line highlighting (optional)
-    },
+    -- dependencies = {
+    --     "echasnovski/mini.nvim" -- Needed for :ToggleCommentDebugPrints(NeoVim 0.9 only)
+    --                             -- and line highlighting (optional)
+    -- },
 
     version = "*", -- Remove if you DON'T want to use the stable version
 }
