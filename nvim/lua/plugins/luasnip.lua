@@ -68,6 +68,9 @@ return {
         })
 
         ls.add_snippets("rust", {
+            s("p",
+                fmt("dbg!(\"{}\"{});{}", { i(1), i(2), i(0) })
+            ),
             s("tr",
                 fmt("tracing::{}!(\"{}\"{});", { i(2, "info"), i(1), i(3) })
             ),
@@ -116,6 +119,30 @@ return {
                 { i(2), i(1), i(3, "1"), i(4, "1"), i(0) }
                 )
             )
+        })
+
+        ls.add_snippets("go", {
+            s("p",
+                fmt("fmt.Println(\"{}\"{}){}", { i(1), i(2), i(0) })
+            ),
+        })
+
+        ls.add_snippets("sh", {
+            s("p",
+                fmt("echo \"{}\"{}", { i(1), i(0) })
+            ),
+        })
+
+        ls.add_snippets("make", {
+            s("p",
+                fmt("$(info {}){}", { i(1), i(0) })
+            ),
+        })
+
+        ls.add_snippets("lua", {
+            s("p",
+                fmt("print(\"{}\"{}){}", { i(1), i(2), i(0) })
+            ),
         })
 
         -- not using the following because `Telescope luasnip` isn't using the UI picker:
