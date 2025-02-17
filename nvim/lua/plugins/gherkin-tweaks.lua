@@ -4,7 +4,7 @@ return {
     -- dev = true,
     config = function()
         require('gherkin-tweaks').setup({
-            tag = '@cj',
+            tag = '@cj @live',
             auto_save = true,
         })
 
