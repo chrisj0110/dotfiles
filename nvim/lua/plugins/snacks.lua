@@ -65,7 +65,6 @@ return {
   keys = {
       { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
       { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
-      { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
       { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
       -- find
       { "<leader>ft", function() Snacks.picker.files({ cwd = "~/til" }) end, desc = "Find TIL File" },
@@ -77,17 +76,17 @@ return {
       { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
       { "<leader>gB", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
       -- grep
-      { "<leader>sg", function() Snacks.picker.grep() end, desc = "Grep" },
-      { "<leader>sG", function()
+      { "<leader>/", function() Snacks.picker.grep({ hidden = true }) end, desc = "Grep" },
+      { "<leader>sg", function()
           vim.ui.input({ prompt = "Enter file glob: " }, function(glob)
               if glob then
-                  require("snacks").picker.grep({ glob = glob })
+                  Snacks.picker.grep({ glob = glob, hidden = true })
               end
           end)
       end, desc = "Grep in file pattern" },
-      { "<leader>st", function() Snacks.picker.grep({ dirs = { "~/til" } }) end, desc = "Grep TIL" },
-      { "<leader>gF", function() Snacks.picker.grep({ dirs = { require("gp").config.chat_dir } }) end, desc = "Grep GP Chat File" },
-      { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
+      { "<leader>st", function() Snacks.picker.grep({ dirs = { "~/til" }, hidden = true }) end, desc = "Grep TIL" },
+      { "<leader>gF", function() Snacks.picker.grep({ dirs = { require("gp").config.chat_dir }, hidden = true }) end, desc = "Grep GP Chat File" },
+      { "<leader>sw", function() Snacks.picker.grep_word({ hidden = true }) end, desc = "Visual selection or word", mode = { "n", "x" } },
       -- search
       { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
       { '<leader>s/', function() Snacks.picker.search_history() end, desc = "Search History" },
