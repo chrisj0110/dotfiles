@@ -85,7 +85,6 @@ return {
           end)
       end, desc = "Grep in file pattern" },
       { "<leader>st", function() Snacks.picker.grep({ dirs = { "~/til" }, hidden = true }) end, desc = "Grep TIL" },
-      { "<leader>gF", function() Snacks.picker.grep({ dirs = { require("gp").config.chat_dir }, hidden = true }) end, desc = "Grep GP Chat File" },
       { "<leader>sw", function() Snacks.picker.grep_word({ hidden = true }) end, desc = "Visual selection or word", mode = { "n", "x" } },
       -- search
       { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
