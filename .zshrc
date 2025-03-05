@@ -49,7 +49,7 @@ alias gcb='git checkout -b'
 alias gco='git checkout'
 alias gpom='git pull origin master'
 alias gbr="git branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate"
-alias gcof='git checkout `git branch --sort=-committerdate | fzf`'
+alias gcf='git checkout `git branch --sort=-committerdate | fzf`'
 alias gdb='git diff master..$(git branch --show-current) > ~/temp/out.patch'
 
 # git misc
@@ -60,8 +60,9 @@ alias gcpnc='git cherry-pick --no-commit'
 alias gct='git checkout --theirs'
 alias glg="git log --pretty=format:\"%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) [%an]\" --abbrev-commit -30"
 alias gp="git pull"
-alias gpu="git push"
-alias gpnv="git push -u --no-verify"
+alias gP="git push"
+alias gPnv="git push -u --no-verify"
+alias gc="git commit"
 alias gca="git commit -am"
 alias gcamsg='git commit -am "$msg"'
 alias gaa="git add --all"
