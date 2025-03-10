@@ -72,6 +72,7 @@ alias gds="git diff --staged"
 # commit messages
 alias dbg="git commit -am 'dbg'"
 alias fix="git commit -am 'fix'"
+alias rvt="git commit -am 'rvt'"
 alias wip="git commit -am 'wip'"
 
 function gdhash() {
