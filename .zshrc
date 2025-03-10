@@ -68,6 +68,10 @@ alias gcamsg='git commit -am "$msg"'
 alias gaa="git add --all"
 alias gd="git diff"
 alias gds="git diff --staged"
+alias fix="git commit -am 'fix'"
+alias fixp="git commit -am 'fix' && git push"
+alias wip="git commit -am 'wip'"
+alias wipp="git commit -am 'wip' && git push"
 
 function gdhash() {
     git diff $1^..$1
