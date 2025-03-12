@@ -121,7 +121,9 @@ end
 
 vim.keymap.set("n", "<leader>sf", function()
     jump_to_log_line("")
-end, { desc = "jump to file and line found in current .log line"})
+end, { desc = "jump to file and line found in current log (work) line"})
+
+vim.keymap.set("n", "<leader>sj", ":set syntax=json<cr>", { desc = "set syntax=json" })
 
 ---- end macros
 
