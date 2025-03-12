@@ -69,7 +69,7 @@ return {
 
         ls.add_snippets("rust", {
             s("p",
-                fmt("dbg!(\"{}\"{});{}", { i(1), i(2), i(0) })
+                fmt("println!(\"{}\"{});{}", { i(1), i(2), i(0) })
             ),
             s("tr",
                 fmt("tracing::{}!(\"{}\"{});", { i(2, "info"), i(1), i(3) })
