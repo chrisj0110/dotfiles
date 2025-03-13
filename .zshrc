@@ -47,7 +47,7 @@ alias gcm="git checkout master"
 alias gcmp='git checkout master && git pull'  # update master then switch to it
 alias gcb='git checkout -b'
 alias gco='git checkout'
-alias gpom='git pull origin master'
+alias gpom='git pull --no-edit origin master'
 alias gbr="git branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate"
 alias gcf='git checkout `git branch --sort=-committerdate | fzf`'
 alias gdb='git diff master..$(git branch --show-current) > ~/temp/out.patch'
