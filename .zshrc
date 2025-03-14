@@ -22,6 +22,8 @@ alias lazygit="lazygit -ucd ~/.config/lazygit"
 
 alias format-json-clipboard="pbpaste | jq | pbcopy"
 
+export t=~/temp/temp.txt
+
 export GITHUB_EMAIL="45946825+chrisj0110@users.noreply.github.com"
 
 alias git-github-name-and-email='git config user.name "chrisj0110" && git config user.email "45946825+chrisj0110@users.noreply.github.com"'
