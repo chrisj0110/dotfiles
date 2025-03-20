@@ -72,10 +72,14 @@ alias gd="git diff"
 alias gds="git diff --staged"
 
 # commit messages
-alias dbg="git commit -am 'dbg'"
+alias dbg="git commit -am 'debug'"
+alias dbgp="git commit -am 'debug' && git push"
 alias fix="git commit -am 'fix'"
-alias rvt="git commit -am 'rvt'"
+alias fixp="git commit -am 'fix' && git push"
+alias rvt="git commit -am 'revert'"
+alias rvtp="git commit -am 'revert' && git push"
 alias wip="git commit -am 'wip'"
+alias wipp="git commit -am 'wip' && git push"
 
 function gdhash() {
     git diff $1^..$1
