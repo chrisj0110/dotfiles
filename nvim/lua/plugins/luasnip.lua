@@ -88,9 +88,9 @@ return {
             s("timer-end",
                 fmt(
                 [[
-                    println!("{}: {{}}", (Instant::now() - start).as_millis());{}
+                    let elapsed = (Instant::now() - start).as_millis();{}
                 ]],
-                { i(1), i(0) })
+                { i(0) })
             ),
             s("utm",
                 fmt(
