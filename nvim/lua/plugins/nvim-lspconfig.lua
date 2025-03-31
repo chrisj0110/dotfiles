@@ -30,9 +30,11 @@ return {
 
             -- see also lazyvim rust-analyzer config: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/rust.lua
             lspconfig.rust_analyzer.setup {
-                cmd = { vim.fn.expand("~/.rustup/toolchains/1.78.0-aarch64-apple-darwin/bin/rust-analyzer") },
+                -- cmd = { vim.fn.expand("~/.rustup/toolchains/1.78.0-aarch64-apple-darwin/bin/rust-analyzer") },
+                cmd = { vim.fn.expand("~/.cargo/bin/rust-analyzer") },
+                -- cmd = { "rustup", "run", "stable", "rust-analyzer" },
+                -- cmd = { vim.fn.expand("~/.rustup/toolchains/stable-aarch64-apple-darwin/bin/rust-analyzer") },
                 -- cmd = { vim.fn.expand("~/.local/bin/rust-analyzer") },
-                -- cmd = { vim.fn.expand("~/.cargo/bin/rust-analyzer") },
                 -- cmd = { vim.fn.expand("~/.cargo/bin/rust-analyzer-wrapper") },
                 -- cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/rust-analyzer") },
                 capabilities = capabilities,
