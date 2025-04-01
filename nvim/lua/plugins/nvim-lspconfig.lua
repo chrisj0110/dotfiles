@@ -44,13 +44,14 @@ return {
                             -- allFeatures = true, -- compile all feature-gated code
                             loadOutDirsFromCheck = true,
                             buildScripts = {
-                                enable = true,
+                                -- execute build.rs scripts for cfg attributes and macros; might slow things down?
+                                enable = false,
                             },
                         },
                         -- set to false to not expand macros
-                        -- procMacro = {
-                        --     enable = true,
-                        -- },
+                        procMacro = {
+                            enable = false,
+                        },
                         -- Add clippy lints for Rust
                         checkOnSave = {
                             command = "clippy",
@@ -181,6 +182,7 @@ return {
             vim.api.nvim_set_keymap('n', '[i', ":lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.INFO })<CR>", { noremap = true, silent = true })
             vim.api.nvim_set_keymap('n', ']i', ":lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.INFO })<CR>", { noremap = true, silent = true })
 
+            -- vim.lsp.set_log_level("DEBUG")
         end
     }
 }
