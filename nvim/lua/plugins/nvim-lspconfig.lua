@@ -47,6 +47,7 @@ return {
                                 -- execute build.rs scripts for cfg attributes and macros; might slow things down?
                                 enable = false,
                             },
+                            allTargets = false, -- Skip analyzing tests/examples for better perf
                         },
                         -- set to false to not expand macros
                         procMacro = {
@@ -63,6 +64,9 @@ return {
                         --     level = "debug",  -- Set logging to debug for more insight
                         --     file = "rust-analyzer.log",  -- Specify a log file for diagnostics
                         -- },
+                        cachePriming = {
+                            enable = true -- Pre-loads caches for faster initial completions
+                        },
                     }
                 },
             }
