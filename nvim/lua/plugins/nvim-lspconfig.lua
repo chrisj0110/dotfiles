@@ -59,6 +59,7 @@ return {
                         },
                         diagnostics = {
                             debounce = 150, -- to reduce frequent updates
+                            disabled = {"macro-error"},
                         },
                         -- logging = {
                         --     level = "debug",  -- Set logging to debug for more insight
