@@ -52,6 +52,7 @@ alias gco='git checkout'
 alias gpom='git pull --no-edit origin master'
 alias gbr="git branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate"
 alias gbc="git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy"
+alias gbcm="git rev-parse --abbrev-ref HEAD | sed 's/-/ /g' | tr -d '\n' | pbcopy"
 alias gcf='git checkout `git branch --sort=-committerdate | fzf`'
 alias gdb='git diff master..$(git branch --show-current) > ~/temp/out.patch'
 
