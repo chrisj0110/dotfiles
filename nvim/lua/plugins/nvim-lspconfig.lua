@@ -67,6 +67,13 @@ return {
                         cachePriming = {
                             enable = true -- Pre-loads caches for faster initial completions
                         },
+                        files = {
+                            exclude = {
+                                "outputs",
+                                "bazel-out",
+                                "bazel-p21-embedded"
+                            },
+                        },
                     }
                 },
             }
