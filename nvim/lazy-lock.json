@@ -3,6 +3,7 @@
   "blink.cmp": { "branch": "main", "commit": "49f211fe5d729df53df4c042d7c3464cf47d199e" },
   "catppuccin": { "branch": "main", "commit": "5b5e3aef9ad7af84f463d17b5479f06b87d5c429" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
+  "fidget.nvim": { "branch": "main", "commit": "d9ba6b7bfe29b3119a610892af67602641da778e" },
   "fugitive-gitlab.vim": { "branch": "master", "commit": "3584cf7e607ba7822f991d407a8d780e05aae287" },
   "gherkin-tweaks": { "branch": "main", "commit": "002a4b264ee586466f3a0289c2b0486fec3483a5" },
   "gitsigns.nvim": { "branch": "main", "commit": "3c76f7fabac723aa682365ef782f88a83ccdb4ac" },
