@@ -69,7 +69,7 @@ return {
                             enable = true -- Pre-loads caches for faster initial completions
                         },
                         files = {
-                            exclude = {
+                            excludeDirs = {
                                 "outputs",
                                 "bazel-out",
                                 "bazel-p21-embedded"
