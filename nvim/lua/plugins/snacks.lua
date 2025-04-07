@@ -98,6 +98,6 @@ return {
       { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
       -- LSP
       { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
-      -- TODO: handling luasnip with telescope until/unless snacks supports it
+      -- TODO: handling luasnip with telescope-luasnip until/unless snacks supports it
   },
 }

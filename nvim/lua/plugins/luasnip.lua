@@ -1,11 +1,7 @@
 return {
     "L3MON4D3/LuaSnip",
     lazy = true,
-    -- dependencies = { "nvim-telescope/telescope.nvim" },
     keys = {
-        -- {
-        --     '<leader>tl', ':Telescope luasnip<CR>', { noremap = true }
-        -- },
         {
             '<c-l>', function()
                 local ls = require("luasnip")
@@ -144,9 +140,6 @@ return {
                 fmt("print(\"{}\"{}){}", { i(1), i(2), i(0) })
             ),
         })
-
-        -- not using the following because `Telescope luasnip` isn't using the UI picker:
-        -- vim.keymap.set("i", "<c-u>", require("luasnip.extras.select_choice"))
 
         -- ls.add_snippets("cucumber", {
         --     s("step", {
