@@ -287,3 +287,9 @@ vim.keymap.set("i", '<c-r>r', '<c-r>"')
 vim.opt.equalalways = false -- Disable automatic resizing of splits
 vim.keymap.set("n", '<leader>ss', ':split | wincmd J | resize 15<cr>', { desc = "split a smaller window" })
 vim.keymap.set("n", '<leader>sv', ':split | wincmd L | vertical resize 70<cr>', { desc = "split a smaller vertical window" })
+
+-- toggle
+vim.keymap.set("n", '<leader>tw', function()
+    vim.wo.wrap = not vim.wo.wrap
+    print("Wrap turned " .. (vim.wo.wrap and "on" or "off"))
+end, { desc = "toggle wrap" })
