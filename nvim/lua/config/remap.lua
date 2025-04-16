@@ -125,6 +125,10 @@ end, { desc = "jump to file and line found in current log (work) line"})
 
 vim.keymap.set("n", "<leader>sj", ":set syntax=json<cr>", { desc = "set syntax=json" })
 
+vim.keymap.set("n", "<leader>go", function()
+    vim.cmd('GBrowse ' .. vim.fn.expand("<cword>"))
+end, { desc = "open commit under cursor in browser" })
+
 ---- end macros
 
 
