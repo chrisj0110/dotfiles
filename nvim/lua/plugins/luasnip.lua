@@ -68,7 +68,7 @@ return {
                 fmt("println!(\"{}\"{});{}", { i(1), i(2), i(0) })
             ),
             s("tr",
-                fmt("tracing::{}!(\"{}\"{});", { i(2, "info"), i(1), i(3) })
+                fmt("tracing::info!(\"{}\"{});{}", { i(1), i(2), i(0) })
             ),
             s("s",
                 fmt("std::thread::sleep(core::time::Duration::from_secs({}));{}", { i(1), i(0) })
