@@ -297,3 +297,6 @@ vim.keymap.set("n", '<leader>tw', function()
     vim.wo.wrap = not vim.wo.wrap
     print("Wrap turned " .. (vim.wo.wrap and "on" or "off"))
 end, { desc = "toggle wrap" })
+
+-- search within visual selection, via https://www.reddit.com/r/neovim/comments/1k4efz8/comment/mo9nalp/
+vim.keymap.set("x", "/", "<Esc>/\\%V")
