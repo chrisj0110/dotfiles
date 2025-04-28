@@ -28,6 +28,64 @@ return {
             local util = require("lspconfig/util")
             local capabilities = require('blink.cmp').get_lsp_capabilities()
 
+            -- rust config
+            local default_rust_analyzer_check_on_save = {
+                command = "clippy",
+            }
+            local bazel_rust_analyzer_check_on_save = {
+                enable = true,
+                command = "bazel",
+                extraArgs = {"run", "@rules_rust//tools/upstream_wrapper:cargo_clippy", "--", "check"},
+            }
+
+            local settings = {
+                ['rust-analyzer'] = {
+                    cargo = {
+                        -- allFeatures = true, -- compile all feature-gated code
+                        loadOutDirsFromCheck = false,
+                        buildScripts = {
+                            -- execute build.rs scripts for cfg attributes and macros; might slow things down?
+                            enable = false,
+                        },
+                        allTargets = false, -- Skip analyzing tests/examples for better perf
+                    },
+                    -- set to false to not expand macros
+                    procMacro = {
+                        enable = false,
+                    },
+                    diagnostics = {
+                        debounce = 150, -- to reduce frequent updates
+                        disabled = {"macro-error"},
+                    },
+                    -- logging = {
+                    --     level = "debug",  -- Set logging to debug for more insight
+                    --     file = "rust-analyzer.log",  -- Specify a log file for diagnostics
+                    -- },
+                    cachePriming = {
+                        enable = true -- Pre-loads caches for faster initial completions
+                    },
+                    files = {
+                        excludeDirs = {
+                            "outputs",
+                            "bazel-out",
+                            "bazel-p21-embedded"
+                        },
+                    },
+                }
+            }
+
+            if string.find(vim.fn.getcwd(), "p21-embedded") then
+                settings['rust-analyzer'].cargo.loadOutDirsFromCheck = false
+                settings['rust-analyzer'] = {
+                    checkOnSave = bazel_rust_analyzer_check_on_save
+                }
+            else
+                settings['rust-analyzer'].cargo.loadOutDirsFromCheck = true
+                settings['rust-analyzer'] = {
+                    checkOnSave = default_rust_analyzer_check_on_save
+                }
+            end
+
             -- see also lazyvim rust-analyzer config: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/rust.lua
             lspconfig.rust_analyzer.setup {
                 -- cmd = { vim.fn.expand("~/.rustup/toolchains/1.78.0-aarch64-apple-darwin/bin/rust-analyzer") },
@@ -38,45 +96,7 @@ return {
                 -- cmd = { vim.fn.expand("~/.cargo/bin/rust-analyzer-wrapper") },
                 -- cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/rust-analyzer") },
                 capabilities = capabilities,
-                settings = {
-                    ['rust-analyzer'] = {
-                        cargo = {
-                            -- allFeatures = true, -- compile all feature-gated code
-                            loadOutDirsFromCheck = true,
-                            buildScripts = {
-                                -- execute build.rs scripts for cfg attributes and macros; might slow things down?
-                                enable = false,
-                            },
-                            allTargets = false, -- Skip analyzing tests/examples for better perf
-                        },
-                        -- set to false to not expand macros
-                        procMacro = {
-                            enable = false,
-                        },
-                        -- Add clippy lints for Rust
-                        checkOnSave = {
-                            command = "clippy",
-                        },
-                        diagnostics = {
-                            debounce = 150, -- to reduce frequent updates
-                            disabled = {"macro-error"},
-                        },
-                        -- logging = {
-                        --     level = "debug",  -- Set logging to debug for more insight
-                        --     file = "rust-analyzer.log",  -- Specify a log file for diagnostics
-                        -- },
-                        cachePriming = {
-                            enable = true -- Pre-loads caches for faster initial completions
-                        },
-                        files = {
-                            excludeDirs = {
-                                "outputs",
-                                "bazel-out",
-                                "bazel-p21-embedded"
-                            },
-                        },
-                    }
-                },
+                settings = settings,
             }
 
             lspconfig.lua_ls.setup({
