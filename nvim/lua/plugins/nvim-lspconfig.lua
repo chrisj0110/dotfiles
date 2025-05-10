@@ -35,7 +35,7 @@ return {
             local bazel_rust_analyzer_check_on_save = {
                 enable = true,
                 command = "bazel",
-                extraArgs = {"run", "@rules_rust//tools/upstream_wrapper:cargo_clippy", "--", "check"},
+                extraArgs = {"run", "cargo_clippy", "--", "check"},
             }
 
             local settings = {
