@@ -35,7 +35,7 @@ return {
             local bazel_rust_analyzer_check_on_save = {
                 enable = true,
                 command = "bazel",
-                extraArgs = {"run", "cargo_clippy", "--", "check"},
+                extraArgs = {"run", "--cfg=agents", "cargo_clippy", "--", "check"},
             }
 
             local settings = {
@@ -48,6 +48,7 @@ return {
                             enable = false,
                         },
                         allTargets = false, -- Skip analyzing tests/examples for better perf
+                        extraArgs = { "--cfg=agents" },
                     },
                     -- set to false to not expand macros
                     procMacro = {
