@@ -41,7 +41,6 @@ return {
                             -- execute build.rs scripts for cfg attributes and macros; might slow things down?
                             enable = false,
                         },
-                        -- extraArgs = { "--cfg=agents" },
                     },
                     diagnostics = {
                         debounce = 150, -- to reduce frequent updates
