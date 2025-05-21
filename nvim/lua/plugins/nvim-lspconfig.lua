@@ -29,17 +29,11 @@ return {
             local capabilities = require('blink.cmp').get_lsp_capabilities()
 
             -- rust config
-            local default_rust_analyzer_check_on_save = {
-                command = "clippy",
-            }
-            local bazel_rust_analyzer_check_on_save = {
-                enable = true,
-                command = "bazel",
-                extraArgs = {"run", "--cfg=agents", "cargo_clippy", "--", "check"},
-            }
-
             local settings = {
                 ['rust-analyzer'] = {
+                    checkOnSave = {
+                        command = "clippy",
+                    },
                     cargo = {
                         -- allFeatures = true, -- compile all feature-gated code
                         loadOutDirsFromCheck = false,
@@ -47,12 +41,7 @@ return {
                             -- execute build.rs scripts for cfg attributes and macros; might slow things down?
                             enable = false,
                         },
-                        allTargets = false, -- Skip analyzing tests/examples for better perf
-                        extraArgs = { "--cfg=agents" },
-                    },
-                    -- set to false to not expand macros
-                    procMacro = {
-                        enable = false,
+                        -- extraArgs = { "--cfg=agents" },
                     },
                     diagnostics = {
                         debounce = 150, -- to reduce frequent updates
@@ -74,18 +63,6 @@ return {
                     },
                 }
             }
-
-            if string.find(vim.fn.getcwd(), "p21-embedded") then
-                settings['rust-analyzer'].cargo.loadOutDirsFromCheck = false
-                settings['rust-analyzer'] = {
-                    checkOnSave = bazel_rust_analyzer_check_on_save
-                }
-            else
-                settings['rust-analyzer'].cargo.loadOutDirsFromCheck = true
-                settings['rust-analyzer'] = {
-                    checkOnSave = default_rust_analyzer_check_on_save
-                }
-            end
 
             -- see also lazyvim rust-analyzer config: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/rust.lua
             lspconfig.rust_analyzer.setup {
