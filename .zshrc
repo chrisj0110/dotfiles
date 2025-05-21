@@ -68,7 +68,6 @@ alias gP="git push"
 alias gPnv="git push -u --no-verify"
 alias gc="git commit"
 alias gca="git commit -am"
-alias gcamsg='git commit -am "$msg"'
 alias gaa="git add --all"
 alias gd="git diff"
 alias gds="git diff --staged"
