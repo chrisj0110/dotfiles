@@ -35,7 +35,7 @@ return {
             local bazel_rust_analyzer_check_on_save = {
                 enable = true,
                 command = "bazel",
-                extraArgs = {"run", "--cfg=agents", "build", "--", "check"},
+                extraArgs = {"run", "--cfg=agents", "cargo_clippy", "--", "check"},
             }
 
             local settings = {
@@ -75,7 +75,7 @@ return {
                 }
             }
 
-            if string.find(vim.fn.getcwd(), "p21-embedded", 0, true) then
+            if string.find(vim.fn.getcwd(), "p21-embedded") then
                 settings['rust-analyzer'].cargo.loadOutDirsFromCheck = false
                 settings['rust-analyzer'] = {
                     checkOnSave = bazel_rust_analyzer_check_on_save
