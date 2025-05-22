@@ -39,7 +39,7 @@ return {
                         loadOutDirsFromCheck = false,
                         buildScripts = {
                             -- execute build.rs scripts for cfg attributes and macros; might slow things down?
-                            enable = false,
+                            enable = true,
                         },
                     },
                     diagnostics = {
