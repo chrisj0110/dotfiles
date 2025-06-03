@@ -75,8 +75,6 @@ alias gds="git diff --staged"
 # commit messages
 alias dbg="git commit -am 'debug'"
 alias dbgp="git commit -am 'debug' && git push"
-alias fmt="git commit -am 'fmt'"
-alias fmtp="git commit -am 'fmt' && git push"
 alias fix="git commit -am 'fix'"
 alias fixp="git commit -am 'fix' && git push"
 alias rvt="git commit -am 'revert'"
