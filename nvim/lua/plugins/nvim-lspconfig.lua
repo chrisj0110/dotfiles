@@ -1,8 +1,9 @@
 return {
     { "williamboman/mason.nvim" },
-    { "williamboman/mason-lspconfig.nvim" },
+    { "williamboman/mason-lspconfig.nvim", version = "^1.0" }, -- 2.0 requires neovim 0.11.0
     {
         "neovim/nvim-lspconfig",
+        version = "~2.0.0", -- 2.1 requires neovim 0.11.0
         lazy = true,
         event = { "FileType rust", "FileType sh", "FileType cucumber", "FileType lua", "FileType go", "FileType yaml", "FileType python", "FileType markdown" },
         dependencies = { 'saghen/blink.cmp' },
