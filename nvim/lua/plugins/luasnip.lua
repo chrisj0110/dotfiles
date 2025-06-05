@@ -121,6 +121,16 @@ return {
             s("p",
                 fmt("fmt.Println(\"{}\"{}){}", { i(1), i(2), i(0) })
             ),
+            s("err",
+                fmt(
+                [[
+                    if err != nil {{
+                        {}
+                    }}{}
+                ]],
+                { i(1, "return err"), i(0) }
+                )
+            ),
         })
 
         ls.add_snippets("sh", {
