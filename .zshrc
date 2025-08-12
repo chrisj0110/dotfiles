@@ -195,3 +195,4 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 
 # Created by `pipx` on 2024-11-19 16:57:13
 export PATH="$PATH:~/.local/bin"
+eval "$(direnv hook zsh)"
