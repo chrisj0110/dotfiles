@@ -2,7 +2,7 @@
 
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 
-brew install joshmedeski/sesh/sesh fzf lazygit ripgrep zoxide
+brew install fzf go joshmedeski/sesh/sesh lazygit ripgrep zoxide
 brew install --cask maccy
 
 mkdir -p ~/.zsh/zsh-autosuggestions
