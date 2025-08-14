@@ -5,9 +5,7 @@ ln -s ~/dotfiles/.zshrc ~/.zshrc
 brew install fzf go joshmedeski/sesh/sesh lazygit ripgrep zoxide
 brew install --cask maccy
 
-mkdir -p ~/.zsh/zsh-autosuggestions
-brew install zsh-autosuggestions
-ln -s /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
 mkdir ~/.config
 ln -s ~/dotfiles/nvim ~/.config/nvim
