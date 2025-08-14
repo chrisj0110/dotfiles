@@ -16,7 +16,6 @@ export LESS='-RFX'  # F for dont go to pager unless more than 1 screen; X for do
 
 alias soz="source ~/.zshrc"
 alias sot="tmux source ~/.config/tmux/tmux.conf"
-alias b-starship="cp ~/.config/starship.toml ~/dotfiles"
 
 alias lazygit="lazygit -ucd ~/.config/lazygit"
 
