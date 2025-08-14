@@ -41,10 +41,11 @@ return {
                         -- to fix "ERROR can't load standard library, try installing `rust-src` sysroot_path=...":
                         sysroot = vim.fn.expand("~/.rustup/toolchains/1.86.0-aarch64-apple-darwin"),
                         loadOutDirsFromCheck = false,
-                        buildScripts = {
-                            -- execute build.rs scripts for cfg attributes and macros; might slow things down?
-                            enable = true,
-                        },
+                        -- buildScripts = {
+                        --     -- execute build.rs scripts for cfg attributes and macros; might slow things down?
+                        --     enable = true,
+                        -- },
+                        features = { "agents" },
                     },
                     rustc = {
                         source = "discover"
