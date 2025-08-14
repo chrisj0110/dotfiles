@@ -20,8 +20,9 @@ ln -s ~/.config/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highl
 brew install starship
 ln -s ~/dotfiles/starship.toml ~/.config/starship.toml
 
-mkdir -p ~/.config/ghostty
-ln -s ~/dotfiles/ghosty_config.toml ~/.config/ghostty/ghosty_config.toml
+mkdir -p ~/Library/Application\ Support/com.mitchellh.ghostty/
+mv ~/Library/Application\ Support/com.mitchellh.ghostty/config{,-bak}
+ln -s ~/dotfiles/ghosty_config.toml ~/Library/Application\ Support/com.mitchellh.ghostty/config
 
 brew install tmux
 mkdir -p ~/.config/tmux/
