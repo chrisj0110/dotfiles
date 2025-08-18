@@ -26,7 +26,8 @@ ln -s ~/dotfiles/ghosty_config.toml ~/Library/Application\ Support/com.mitchellh
 
 brew install tmux
 mkdir -p ~/.config/tmux/
-ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+# ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -s ~/dotfiles/tmux.conf ~/.config/tmux/tmux.conf
 
 mkdir -p ~/.config/sesh
 ln -s ~/dotfiles/sesh.toml ~/.config/sesh/sesh.toml
