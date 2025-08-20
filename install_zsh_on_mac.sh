@@ -39,3 +39,6 @@ mkdir -p ~/.config/tmux/plugins/catppuccin
 git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# setup hammerspoon: https://www.hammerspoon.org/go/
+# ln -s ~/dotfiles/hammerspoon_init.lua ~/.hammerspoon/init.lua
