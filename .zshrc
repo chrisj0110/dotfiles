@@ -64,7 +64,7 @@ alias gct='git checkout --theirs'
 alias glg="git log --pretty=format:\"%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) [%an]\" --abbrev-commit -30"
 alias gp="git pull"
 alias gP="git push"
-alias gPnv="git push -u --no-verify"
+alias gpq="git push -u --no-verify" # git push quick
 alias gc="git commit"
 alias gca="git commit -am"
 alias gaa="git add --all"
