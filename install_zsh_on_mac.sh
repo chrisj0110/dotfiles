@@ -2,7 +2,7 @@
 
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 
-brew install fzf go joshmedeski/sesh/sesh lazygit ripgrep zoxide
+brew install eza fzf go joshmedeski/sesh/sesh lazygit ripgrep zoxide
 brew install --cask maccy
 
 $(brew --prefix)/opt/fzf/install
