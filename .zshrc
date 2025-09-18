@@ -9,6 +9,7 @@ bindkey -v # vi mode on command line
 export NVIM_CONFIG="~/.config/nvim"
 alias vi="nvim"
 alias ls="eza"
+alias l="ls -l"
 
 # setopt ignore_eof  # don't exit with control-d
 setopt INTERACTIVE_COMMENTS  # allow comments in zsh commands
