@@ -40,5 +40,11 @@ git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugin
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+# not sure if this actually works:
+git clone https://github.com/eza-community/eza-themes.git
+mkdir -p ~/.config/eza
+ln -sf "$(pwd)/eza-themes/themes/catppuccin.yml" ~/.config/eza/theme.yml
+
 # setup hammerspoon: https://www.hammerspoon.org/go/
+# then:
 # ln -s ~/dotfiles/hammerspoon_init.lua ~/.hammerspoon/init.lua
