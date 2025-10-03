@@ -33,15 +33,16 @@ return {
     --     end, 2000)
     -- end, { desc = 'Request Copilot suggestion' })
 
-    vim.keymap.set('i', '<C-]><C-y>', 'copilot#Accept("\\<CR>")', {
+    -- vim.keymap.set('i', '<C-]><C-y>', 'copilot#Accept("\\<CR>")', {
+    vim.keymap.set('i', '<C-]>', 'copilot#Accept("\\<CR>")', {
         expr = true,
         replace_keycodes = false
     })
     vim.g.copilot_no_tab_map = true
 
-    vim.keymap.set('i', '<C-]><C-n>', function()
-      -- Decline/dismiss the suggestion
-      vim.fn['copilot#Dismiss']()
-    end, { desc = 'Decline Copilot suggestion' })
+    -- vim.keymap.set('i', '<C-]><C-n>', function()
+    --   -- Decline/dismiss the suggestion
+    --   vim.fn['copilot#Dismiss']()
+    -- end, { desc = 'Decline Copilot suggestion' })
   end
 }
