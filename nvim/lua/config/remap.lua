@@ -274,7 +274,7 @@ function Cargo_build_in_tmux_pane()
   vim.fn.system(cmd)
 end
 
-vim.api.nvim_set_keymap('n', '<leader>cb', ':lua Cargo_build_in_tmux_pane()<CR>', { noremap = true, silent = true, desc = "cargo build current project" })
+-- vim.api.nvim_set_keymap('n', '<leader>cb', ':lua Cargo_build_in_tmux_pane()<CR>', { noremap = true, silent = true, desc = "cargo build current project" })
 
 -- did I ever use this?
 -- function Search_and_open_in_qf()
