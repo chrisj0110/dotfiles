@@ -175,16 +175,12 @@ export clear=$'\033[0m'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-[ -f ~/.zshrc-local ] && source ~/.zshrc-local
-
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
 # now load zsh-syntax-highlighting plugin
 # source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export NERD_FONT=JetBrainsMono
 export NERD_FONT_SIZE=14
-
-eval "$(starship init zsh)"
 
 eval "$(zoxide init --cmd cd zsh)"
 
@@ -196,5 +192,9 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
 # Created by `pipx` on 2024-11-19 16:57:13
-export PATH="$PATH:~/.local/bin"
+# export PATH="$PATH:~/.local/bin"
 eval "$(direnv hook zsh)"
+
+eval "$(starship init zsh)"
+
+[ -f ~/.zshrc-local ] && source ~/.zshrc-local
