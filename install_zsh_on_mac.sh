@@ -48,3 +48,6 @@ ln -sf "$(pwd)/eza-themes/themes/catppuccin.yml" ~/.config/eza/theme.yml
 # setup hammerspoon: https://www.hammerspoon.org/go/
 # then:
 # ln -s ~/dotfiles/hammerspoon_init.lua ~/.hammerspoon/init.lua
+
+# faster rust builds - see more instructions on https://corrode.dev/blog/tips-for-faster-rust-compile-times/#macos-only-exclude-rust-compilations-from-gatekeeper
+sudo spctl developer-mode enable-terminal
