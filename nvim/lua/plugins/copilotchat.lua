@@ -24,7 +24,7 @@ return {
           -- jump back to the original window
           vim.cmd("wincmd k")
           -- add file path context to copilot chat
-          vim.api.nvim_put({ "#file:" .. filepath }, 'c', true, true)
+          vim.api.nvim_put({ "", "#file:" .. filepath, "" }, 'c', true, true)
       end, desc = "Send file context to CopilotChat" }
     },
   },
