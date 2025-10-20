@@ -45,7 +45,7 @@ return {
                             -- execute build.rs scripts for cfg attributes and macros; might slow things down?
                             enable = true,
                         },
-                        -- features = { "agents" },
+                        features = { "agents" },
                     },
                     rustc = {
                         source = "discover"
