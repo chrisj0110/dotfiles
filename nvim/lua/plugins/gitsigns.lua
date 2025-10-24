@@ -14,9 +14,9 @@ return {
         {
             "<leader>hr", ":Gitsigns reset_hunk<CR>", { noremap = true }
         },
-        {
-            "<leader>gD", ":vertical Gitsigns diffthis<CR>", { noremap = true }
-        },
+        -- {
+        --     "<leader>gD", ":vertical Gitsigns diffthis<CR>", { noremap = true }
+        -- },
     },
     config = function()
         require('gitsigns').setup()
