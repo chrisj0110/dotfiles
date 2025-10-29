@@ -56,6 +56,7 @@ alias gbcopy="git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy"
 alias gbcopymessage="git rev-parse --abbrev-ref HEAD | sed 's/-/ /g' | tr -d '\n' | pbcopy"
 alias gcf='git checkout `git branch --sort=-committerdate | fzf`'
 alias gdb='git diff master..$(git branch --show-current) > ~/temp/out.patch'
+alias git-branch-current='git rev-parse --abbrev-ref HEAD'
 
 # git misc
 alias gs='git status'
