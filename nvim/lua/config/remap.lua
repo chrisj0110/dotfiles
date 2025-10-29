@@ -300,3 +300,6 @@ end, { desc = "toggle wrap" })
 
 -- search within visual selection, via https://www.reddit.com/r/neovim/comments/1k4efz8/comment/mo9nalp/
 vim.keymap.set("x", "/", "<Esc>/\\%V")
+
+-- select pasted text
+vim.keymap.set("n", "<leader>gv", "`[v`]")
