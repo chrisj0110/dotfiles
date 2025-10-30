@@ -39,6 +39,7 @@ return {
                     cargo = {
                         -- allFeatures = true, -- compile all feature-gated code
                         -- to fix "ERROR can't load standard library, try installing `rust-src` sysroot_path=...":
+                        -- TODO: this looks wrong now as I no longer have a .rustup folder
                         sysroot = vim.fn.expand("~/.rustup/toolchains/1.86.0-aarch64-apple-darwin"),
                         loadOutDirsFromCheck = false,
                         buildScripts = {
