@@ -12,10 +12,10 @@ return {
             layout = 'horizontal',       -- 'vertical', 'horizontal', 'float'
             width = 0.5,              -- 50% of screen width
         },
-        auto_insert_mode = true,     -- Enter insert mode when opening
+        auto_insert_mode = false,
     },
     mapping = {
-        accept = false,            -- Disable default <c-y> accept mapping
+        accept = false, -- Disable default <c-y> accept mapping
     },
     keys = {
       { "<leader>cc", "<cmd>CopilotChat<cr>", desc = "Open Copilot Chat" },
