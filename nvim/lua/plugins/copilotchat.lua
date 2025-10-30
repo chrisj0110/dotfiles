@@ -14,6 +14,9 @@ return {
         },
         auto_insert_mode = true,     -- Enter insert mode when opening
     },
+    mapping = {
+        accept = false,            -- Disable default <c-y> accept mapping
+    },
     keys = {
       { "<leader>cc", "<cmd>CopilotChat<cr>", desc = "Open Copilot Chat" },
       { "<leader>cf", function()
