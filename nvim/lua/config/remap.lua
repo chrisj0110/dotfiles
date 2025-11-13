@@ -303,10 +303,3 @@ vim.keymap.set("x", "/", "<Esc>/\\%V")
 
 -- select pasted text
 vim.keymap.set("n", "<leader>gv", "`[v`]")
-
--- Surround visual selection with triple backticks
-vim.keymap.set('v', '<leader>cb', 'c```<CR><C-r>"<CR>```<Esc>', {
-  noremap = true,
-  silent = true,
-  desc = "Surround with code block"
-})
