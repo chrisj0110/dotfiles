@@ -9,8 +9,8 @@ return {
       log_level = "DEBUG", -- or "TRACE"
     },
   },
-  config = function()
-      vim.api.nvim_set_keymap('n', '<leader>cc', ":CodeCompanionChat Toggle<CR>", { noremap = true, silent = true })
-  end,
+  keys = {
+      { "<leader>cc", "<cmd>CodeCompanionChat Toggle<CR>", { desc = "Toggle CodeCompanion Chat" } }
+  },
 }
 
