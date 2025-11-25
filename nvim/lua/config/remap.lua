@@ -187,6 +187,9 @@ vim.keymap.set("n", "<leader>op", ":e ~/rust_playground/src/main.rs<cr>")
 -- vim.keymap.set("n", "<leader>ot", ":e ~/.config/tmux/tmux.conf<cr>")
 vim.keymap.set("n", "<leader>ot", ":e ~/.config/tmux-sessions.txt<cr>")
 
+-- keep only this window open
+vim.keymap.set("n", "<leader>on", ":on<cr>")
+
 -- repeat dot command over a range
 vim.keymap.set("x", ".", ":normal .<cr>")
 
