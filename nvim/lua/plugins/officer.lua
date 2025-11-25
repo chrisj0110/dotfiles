@@ -26,7 +26,10 @@ return {
         })
 
         -- Keybindings
-        vim.keymap.set('n', '<leader>bb', ':Make<CR>', { desc = 'Bazel build (default)' })
+        vim.keymap.set('n', '<leader>bb', function()
+            vim.cmd('Make')
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-w>h', true, false, true), 'n', false)
+        end, { desc = 'Bazel build (default) and send <C-h>' })
         vim.keymap.set('n', '<leader>bt', ':Make test //...<CR>', { desc = 'Bazel test all' })
         vim.keymap.set('n', '<leader>bm', ':Make ', { desc = 'Bazel build (specify target)' })
 
