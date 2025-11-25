@@ -7,37 +7,42 @@ return {
             create_mappings = false,  -- we'll set custom ones below
         }
 
-        -- using rust only for now
-        vim.bo.makeprg = "bazel build //stapp/..."
+        -- Override makeprg for Rust files (runs after ftplugin)
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "rust",
+            callback = function()
+                vim.bo.makeprg = "bazel build //stapp/..."
 
-        local build_commands = {
-            { label = "bazel build //durst/...", value = "bazel build //durst/..." },
-            { label = "bazel build //stapp/...", value = "bazel build //stapp/..." },
-        }
-        local function pick_makeprg()
-            vim.ui.select(build_commands, {
-                prompt = "Select build command",
-                format_item = function(item) return item.label end,
-            }, function(item)
-                if item then
-                    vim.bo.makeprg = item.value
-                    vim.notify("Set makeprg to: " .. item.value)
+                local build_commands = {
+                    { label = "bazel build //durst/...", value = "bazel build //durst/..." },
+                    { label = "bazel build //stapp/...", value = "bazel build //stapp/..." },
+                }
+                local function pick_makeprg()
+                    vim.ui.select(build_commands, {
+                        prompt = "Select build command",
+                        format_item = function(item) return item.label end,
+                    }, function(item)
+                        if item then
+                            vim.bo.makeprg = item.value
+                            vim.notify("Set makeprg to: " .. item.value)
+                        end
+                    end)
                 end
-            end)
-        end
 
-        -- Add a keymap to trigger the picker
-        vim.keymap.set('n', '<leader>bp', pick_makeprg, { desc = 'Pick build command for makeprg' })
+                -- Add a keymap to trigger the picker
+                vim.keymap.set('n', '<leader>bp', pick_makeprg, { desc = 'Pick build command for makeprg' })
 
-        -- Configure errorformat for Rust compiler output
-        vim.bo.errorformat = table.concat({
-            '%Eerror: %m',
-            '%Eerror[E%n]: %m',
-            '%Wwarning: %m',
-            '%Inote: %m',
-            '%C %#--> %f:%l:%c',
-            '%-G%.%#',  -- ignore other lines
-        }, ',')
+                -- Configure errorformat for Rust compiler output
+                vim.bo.errorformat = table.concat({
+                    '%Eerror: %m',
+                    '%Eerror[E%n]: %m',
+                    '%Wwarning: %m',
+                    '%Inote: %m',
+                    '%C %#--> %f:%l:%c',
+                    '%-G%.%#',  -- ignore other lines
+                }, ',')
+            end,
+        })
 
         -- Keybindings
         vim.keymap.set('n', '<leader>bb', function()
