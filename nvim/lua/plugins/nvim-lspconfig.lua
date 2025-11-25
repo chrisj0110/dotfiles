@@ -29,49 +29,6 @@ return {
             local util = require("lspconfig/util")
             local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-            -- rust config
-            local settings = {
-                ['rust-analyzer'] = {
-                    checkOnSave = true,
-                    check = {
-                        command = "clippy",
-                    },
-                    cargo = {
-                        -- allFeatures = true, -- compile all feature-gated code
-                        -- to fix "ERROR can't load standard library, try installing `rust-src` sysroot_path=...":
-                        -- TODO: this looks wrong now as I no longer have a .rustup folder
-                        sysroot = vim.fn.expand("~/.rustup/toolchains/1.86.0-aarch64-apple-darwin"),
-                        loadOutDirsFromCheck = false,
-                        buildScripts = {
-                            -- execute build.rs scripts for cfg attributes and macros; might slow things down?
-                            enable = true,
-                        },
-                        features = { "agents" },
-                    },
-                    rustc = {
-                        source = "discover"
-                    },
-                    diagnostics = {
-                        debounce = 150, -- to reduce frequent updates
-                        disabled = {"macro-error"},
-                    },
-                    -- logging = {
-                    --     level = "debug",  -- Set logging to debug for more insight
-                    --     file = "rust-analyzer.log",  -- Specify a log file for diagnostics
-                    -- },
-                    cachePriming = {
-                        enable = true -- Pre-loads caches for faster initial completions
-                    },
-                    files = {
-                        excludeDirs = {
-                            "outputs",
-                            "bazel-out",
-                            "bazel-p21-embedded"
-                        },
-                    },
-                }
-            }
-
             -- see also lazyvim rust-analyzer config: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/rust.lua
             lspconfig.rust_analyzer.setup {
                 -- cmd = { vim.fn.expand("~/.rustup/toolchains/1.78.0-aarch64-apple-darwin/bin/rust-analyzer") },
@@ -82,7 +39,40 @@ return {
                 -- cmd = { vim.fn.expand("~/.cargo/bin/rust-analyzer-wrapper") },
                 cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/rust-analyzer") },
                 capabilities = capabilities,
-                settings = settings,
+                -- Override root_dir to avoid cargo metadata
+                root_dir = function(fname)
+                    -- Just use git root or current directory
+                    return vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
+                    or vim.fn.getcwd()
+                end,
+                settings = {
+                    ['rust-analyzer'] = {
+                        -- Disable cargo check since Bazel is our build system
+                        checkOnSave = false,
+
+                        -- Don't try to load cargo metadata
+                        cargo = {
+                            buildScripts = {
+                                enable = false,
+                            },
+                        },
+
+                        -- Ignore build directories
+                        files = {
+                            excludeDirs = {
+                                "outputs",
+                                "bazel-out",
+                                "bazel-bin",
+                                "bazel-testlogs",
+                            },
+                        },
+
+                        -- Disable proc macros to avoid errors
+                        procMacro = {
+                            enable = false,
+                        },
+                    }
+                }
             }
 
             lspconfig.lua_ls.setup({

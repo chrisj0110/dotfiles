@@ -1,0 +1,36 @@
+return {
+    "pianocomposer321/officer.nvim",
+    dependencies = "stevearc/overseer.nvim",
+    config = function()
+        -- Setup officer
+        require("officer").setup {
+            create_mappings = false,  -- we'll set custom ones below
+        }
+
+        -- Override makeprg for Rust files (runs after ftplugin)
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "rust",
+            callback = function()
+                vim.bo.makeprg = "bazel build //stapp/..."
+
+                -- Configure errorformat for Rust compiler output
+                vim.bo.errorformat = table.concat({
+                    '%Eerror: %m',
+                    '%Eerror[E%n]: %m',
+                    '%Wwarning: %m',
+                    '%Inote: %m',
+                    '%C %#--> %f:%l:%c',
+                    '%-G%.%#',  -- ignore other lines
+                }, ',')
+            end,
+        })
+
+        -- Keybindings
+        vim.keymap.set('n', '<leader>bb', ':Make<CR>', { desc = 'Bazel build (default)' })
+        vim.keymap.set('n', '<leader>bt', ':Make test //...<CR>', { desc = 'Bazel test all' })
+
+        -- Optional: manually specify target
+        vim.keymap.set('n', '<leader>bm', ':Make ', { desc = 'Bazel build (specify target)' })
+    end,
+}
+
