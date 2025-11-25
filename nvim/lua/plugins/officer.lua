@@ -28,9 +28,17 @@ return {
         -- Keybindings
         vim.keymap.set('n', '<leader>bb', ':Make<CR>', { desc = 'Bazel build (default)' })
         vim.keymap.set('n', '<leader>bt', ':Make test //...<CR>', { desc = 'Bazel test all' })
-
-        -- Optional: manually specify target
         vim.keymap.set('n', '<leader>bm', ':Make ', { desc = 'Bazel build (specify target)' })
+
+        -- Stop/kill running build
+        vim.keymap.set('n', '<leader>bk', function()
+            local overseer = require('overseer')
+            local tasks = overseer.list_tasks({ recent_first = true })
+            if tasks[1] then
+                tasks[1]:stop()
+                vim.notify('Build stopped')
+            end
+        end, { desc = 'Kill running build' })
     end,
 }
 
