@@ -45,6 +45,7 @@ return {
 
         -- Keybindings
         vim.keymap.set('n', '<leader>bb', function()
+            vim.cmd("lua print('Building: ' .. vim.bo.makeprg)")
             vim.cmd('Make')
             vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-w>h', true, false, true), 'n', false)
         end, { desc = 'Bazel build (default) and send <C-h>' })
