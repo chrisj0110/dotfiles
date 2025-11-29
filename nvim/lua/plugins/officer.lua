@@ -7,9 +7,8 @@ return {
             create_mappings = false,  -- we'll set custom ones below
         }
 
-        -- Override makeprg for Rust files (runs after ftplugin)
-        vim.api.nvim_create_autocmd("FileType", {
-            pattern = "rust",
+        -- Set makeprg and errorformat for every buffer, after ftplugin
+        vim.api.nvim_create_autocmd({ "BufWinEnter", "BufRead" }, {
             callback = function()
                 vim.bo.makeprg = "bazel build //stapp/..."
 
