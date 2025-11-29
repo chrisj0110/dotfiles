@@ -50,7 +50,7 @@ return {
             vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-w>h', true, false, true), 'n', false)
         end, { desc = 'Bazel build (default) and send <C-h>' })
         vim.keymap.set('n', '<leader>bt', ':Make test //...<CR>', { desc = 'Bazel test all' })
-        vim.keymap.set('n', '<leader>bm', ':Make ', { desc = 'Bazel build (specify target)' })
+        vim.keymap.set('n', '<leader>bm', ':set makeprg=bazel\\ build\\ //stapp/...', { desc = 'update makeprg' })
 
         -- Stop/kill running build
         vim.keymap.set('n', '<leader>bk', function()
