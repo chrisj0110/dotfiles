@@ -15,6 +15,14 @@ return {
                 },
             },
         },
+        strategies = {
+            chat = {
+                keymaps = {
+                    next_chat = false, -- was "}"
+                    previous_chat = false, -- was "{"
+                },
+            },
+        },
     },
     keys = {
         { "<leader>cc", "<cmd>CodeCompanionChat Toggle<CR>", { desc = "Toggle CodeCompanion Chat" } }
