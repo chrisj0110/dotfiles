@@ -67,9 +67,9 @@ return {
                             },
                         },
 
-                        -- Disable proc macros to avoid errors
-                        procMacro = {
-                            enable = false,
+                        diagnostics = {
+                            debounce = 150, -- to reduce frequent updates
+                            disabled = {"macro-error"},
                         },
                     }
                 }
