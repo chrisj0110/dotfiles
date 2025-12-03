@@ -100,6 +100,7 @@ return {
       { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
       -- LSP
       { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
+      { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
       -- TODO: handling luasnip with telescope-luasnip until/unless snacks supports it
   },
 }
