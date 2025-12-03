@@ -69,7 +69,7 @@ alias glg="git log --pretty=format:\"%C(magenta)%h%Creset -%C(yellow)%d%Creset %
 alias gp="git pull"
 alias gP="git push"
 alias gpq="git push -u --no-verify" # git push quick
-alias gc="git commit"
+alias gc="git commit -m"
 alias gca="git commit -am"
 alias gcne="git commit --no-edit"
 alias gaa="git add --all"
