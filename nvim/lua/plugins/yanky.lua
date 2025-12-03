@@ -9,6 +9,15 @@ return {
       on_yank = false,
       timer = 500,
     },
+    ring = {
+        -- Track deletes as well as yanks
+        history = 100,
+        storage = "shada",
+        sync_with_numbered_registers = true,
+        cancel_event = "update",
+        -- Add deleted text to the yankring
+        update_register_on_delete = true,
+    },
   },
   dependencies = { "folke/snacks.nvim" },
   keys = {
