@@ -38,7 +38,14 @@ return {
         },
     },
     keys = {
-        { "<leader>cc", "<cmd>CodeCompanionChat Toggle<CR>", { desc = "Toggle CodeCompanion Chat" } }
+        { "<leader>cc", "<cmd>CodeCompanionChat Toggle<CR>", { desc = "Toggle CodeCompanion Chat" } },
+        { "<leader>cb", function()
+            local line = "in #{buffer}, "
+            local row = vim.api.nvim_win_get_cursor(0)[1]
+            vim.api.nvim_buf_set_lines(0, row, row, true, { line })
+            vim.api.nvim_win_set_cursor(0, { row + 1, #line })
+            vim.api.nvim_feedkeys("A", "n", false)
+        end, { desc = "CodeCompanion Chat reference Buffer and switch to insert mode" } },
     },
 }
 
