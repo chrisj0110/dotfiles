@@ -71,6 +71,9 @@ return {
                             debounce = 150, -- to reduce frequent updates
                             disabled = {"macro-error"},
                         },
+                        procMacro = {
+                            enable = false
+                        },
                     }
                 }
             }
