@@ -69,22 +69,25 @@ alias glg="git log --pretty=format:\"%C(magenta)%h%Creset -%C(yellow)%d%Creset %
 alias gp="git pull"
 alias gP="git push"
 alias gpq="git push -u --no-verify" # git push quick
-alias gc="git commit -m"
-alias gca="git commit -am"
+alias gc="gs && git commit -m"
+alias gca="gs && git commit -am"
 alias gcne="git commit --no-edit"
 alias gaa="git add --all"
 alias gd="git diff"
 alias gds="git diff --staged"
 
 # commit messages
-alias dbg="git commit -am 'debug'"
-alias dbgp="git commit -am 'debug' && git push"
-alias fix="git commit -am 'fix'"
-alias fixp="git commit -am 'fix' && git push"
-alias rvt="git commit -am 'revert'"
-alias rvtp="git commit -am 'revert' && git push"
-alias wip="git commit -am 'wip'"
-alias wipp="git commit -am 'wip' && git push"
+alias dbg="gs && git commit -am 'debug'"
+alias dbgp="gs && git commit -am 'debug' && git push"
+alias fix="gs && git commit -am 'fix'"
+alias fixp="gs && git commit -am 'fix' && git push"
+alias fixq="gs && git commit -am 'fix' && gpq"
+alias rvt="gs && git commit -am 'revert'"
+alias rvtp="gs && git commit -am 'revert' && git push"
+alias rvtqp="gs && git commit -am 'revert' && gpq"
+alias wip="gs && git commit -am 'wip'"
+alias wipp="gs && git commit -am 'wip' && git push"
+alias wipq="gs && git commit -am 'wip' && gpq"
 
 function gdhash() {
     git diff $1^..$1
