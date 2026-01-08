@@ -45,17 +45,27 @@ function gcp-deploy-cloud-function() {
     gcloud functions deploy $2 --gen2 --runtime=python310 --entry-point=main --memory=256MB --trigger-http --allow-unauthenticated --project $1
 }
 
+# git
+function git_wrapper() {
+    # workaround: run make lock before checkout, switch, or pull if MODULE.bazel.lock exists
+    if [[ ( "$1" == "checkout" || "$1" == "switch" || "$1" == "pull" ) && -f MODULE.bazel.lock ]]; then
+        echo "Running 'make lock' before git $1..."
+        make lock
+    fi
+    git "$@"
+}
+
 # git branches
-alias gcm="git checkout master"
+alias gcm="git_wrapper checkout master"
 # alias gcmp='git fetch origin master:master && gcm'  # update master then switch to it
-alias gcmp='git checkout master && git pull'  # update master then switch to it
-alias gcb='git checkout -b'
-alias gco='git checkout'
-alias gpom='git pull --no-edit origin master'
+alias gcmp='git_wrapper checkout master && git_wrapper pull'
+alias gcb='git_wrapper checkout -b'
+alias gco='git_wrapper checkout'
+alias gpom='git_wrapper pull --no-edit origin master'
 alias gbr="git branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate"
 alias gbcopy="git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy"
 alias gbcopymessage="git rev-parse --abbrev-ref HEAD | sed 's/-/ /g' | tr -d '\n' | pbcopy"
-alias gcf='git checkout `git branch --sort=-committerdate | fzf`'
+alias gcf='git_wrapper checkout `git branch --sort=-committerdate | fzf`'
 alias gdb='git diff master..$(git branch --show-current) > ~/temp/out.patch'
 alias git-branch-current='git rev-parse --abbrev-ref HEAD'
 
@@ -66,7 +76,7 @@ alias gcp='git cherry-pick'
 alias gcpnc='git cherry-pick --no-commit'
 alias gct='git checkout --theirs'
 alias glg="git log --pretty=format:\"%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) [%an]\" --abbrev-commit -30"
-alias gp="git pull"
+alias gp="git_wrapper_wrapper pull"
 alias gP="git push"
 alias gpq="git push -u --no-verify" # git push quick
 alias gc="gs && git commit -m"
