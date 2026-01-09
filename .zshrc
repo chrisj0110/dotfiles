@@ -76,7 +76,7 @@ alias gcp='git cherry-pick'
 alias gcpnc='git cherry-pick --no-commit'
 alias gct='git checkout --theirs'
 alias glg="git log --pretty=format:\"%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) [%an]\" --abbrev-commit -30"
-alias gp="git_wrapper_wrapper pull"
+alias gp="git_wrapper pull"
 alias gP="git push"
 alias gpq="git push -u --no-verify" # git push quick
 alias gc="gs && git commit -m"
