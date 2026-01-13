@@ -128,6 +128,8 @@ alias rp="cargo run --manifest-path ~/rust_playground/Cargo.toml"
 # til
 # alias til='vi -c ":cd ~/til | :lua my_exact_live_grep()"'
 
+alias pre-commit-run-all="pre-commit run --all-files"
+
 # from Taylor: jwt [encoded-value]
 function jwt-decode() {
   jq -R 'split(".") |.[0:2] | map(@base64d) | map(fromjson)' <<< $1
