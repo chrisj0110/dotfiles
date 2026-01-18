@@ -1,3 +1,11 @@
+local function send_buf_path_to_chat_window()
+    local bufname = vim.fn.expand("%:.")
+    vim.cmd("CodeCompanionChat")
+    vim.defer_fn(function()
+        vim.cmd("normal! i#{buffer:" .. bufname .. "} ")
+    end, 100) -- ms
+end
+
 return {
     "olimorris/codecompanion.nvim",
     dependencies = {
@@ -39,13 +47,23 @@ return {
     },
     keys = {
         { "<leader>cc", "<cmd>CodeCompanionChat Toggle<CR>", { desc = "Toggle CodeCompanion Chat" } },
-        { "<leader>cb", function()
-            local line = "in #{buffer}, "
-            local row = vim.api.nvim_win_get_cursor(0)[1]
-            vim.api.nvim_buf_set_lines(0, row, row, true, { line })
-            vim.api.nvim_win_set_cursor(0, { row + 1, #line })
-            vim.api.nvim_feedkeys("A", "n", false)
-        end, { desc = "CodeCompanion Chat reference Buffer and switch to insert mode" } },
+
+        { "<leader>cn", function()
+            vim.cmd("CodeCompanionChat")
+            vim.defer_fn(function()
+                vim.cmd("normal! gx")
+            end, 100) -- ms
+        end, { desc = "New CodeCompanion" } },
+
+        { "<leader>ch", function()
+            send_buf_path_to_chat_window()
+        end, { desc = "Copy buffer and write to the chat window" } },
+
+        { "<leader>cl", function()
+            vim.cmd("wincmd h")
+            send_buf_path_to_chat_window()
+        end, { desc = "Copy other buffer (from chat window) and write to the chat window" } },
+
     },
 }
 
