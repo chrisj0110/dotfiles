@@ -50,7 +50,7 @@ return {
         { "<leader>cl", function()
             vim.cmd("wincmd h")
             local bufname = vim.fn.expand("%:.")
-            vim.cmd("CodeCompanionChat")
+            vim.cmd("wincmd l")
             vim.defer_fn(function()
                 vim.cmd("normal! i#{buffer:" .. bufname .. "} ")
             end, 100) -- ms
