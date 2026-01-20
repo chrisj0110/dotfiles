@@ -1,11 +1,3 @@
-local function send_buf_path_to_chat_window()
-    local bufname = vim.fn.expand("%:.")
-    vim.cmd("CodeCompanionChat")
-    vim.defer_fn(function()
-        vim.cmd("normal! i#{buffer:" .. bufname .. "} ")
-    end, 100) -- ms
-end
-
 return {
     "olimorris/codecompanion.nvim",
     dependencies = {
@@ -55,13 +47,13 @@ return {
             end, 100) -- ms
         end, { desc = "New CodeCompanion" } },
 
-        { "<leader>ch", function()
-            send_buf_path_to_chat_window()
-        end, { desc = "Copy buffer and write to the chat window" } },
-
         { "<leader>cl", function()
             vim.cmd("wincmd h")
-            send_buf_path_to_chat_window()
+            local bufname = vim.fn.expand("%:.")
+            vim.cmd("CodeCompanionChat")
+            vim.defer_fn(function()
+                vim.cmd("normal! i#{buffer:" .. bufname .. "} ")
+            end, 100) -- ms
         end, { desc = "Copy other buffer (from chat window) and write to the chat window" } },
 
     },
