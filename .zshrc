@@ -78,7 +78,8 @@ alias gct='git checkout --theirs'
 alias glg="git log --pretty=format:\"%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) [%an]\" --abbrev-commit -30"
 alias gp="git_wrapper pull"
 alias gP="git push"
-alias gpq="git push -u --no-verify" # git push quick
+# alias gpq="git push -u --no-verify" # git push quick
+alias gpq="SKIP=format-check git push" # skip the format-check part of our hooks
 alias gc="gs && git commit -m"
 alias gca="gs && git commit -am"
 alias gcne="git commit --no-edit"
