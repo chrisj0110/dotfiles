@@ -52,7 +52,11 @@ return {
             local bufname = vim.fn.expand("%:.")
             vim.cmd("wincmd l")
             vim.defer_fn(function()
-                vim.cmd("normal! i#{buffer:" .. bufname .. "} ")
+                local buf = vim.api.nvim_get_current_buf()
+                local last_line = vim.api.nvim_buf_line_count(buf)
+                -- Insert after last_line + 1 (which is two lines below the last line)
+                vim.api.nvim_buf_set_lines(buf, last_line + 1, last_line + 1, false, { "#{buffer:" .. bufname .. "} " })
+                vim.cmd("normal! G")
             end, 100) -- ms
         end, { desc = "Copy other buffer (from chat window) and write to the chat window" } },
 
