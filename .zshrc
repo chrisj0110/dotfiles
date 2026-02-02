@@ -52,20 +52,21 @@ function git_wrapper() {
         echo "Running 'make lock' before git $1..."
         make lock
     fi
-    git "$@"
+    command git "$@"
 }
+alias git='git_wrapper'
 
 # git branches
-alias gcm="git_wrapper checkout master"
+alias gcm="git checkout master"
 # alias gcmp='git fetch origin master:master && gcm'  # update master then switch to it
-alias gcmp='git_wrapper checkout master && git_wrapper pull'
-alias gcb='git_wrapper checkout -b'
-alias gco='git_wrapper checkout'
-alias gpom='git_wrapper pull --no-edit origin master'
+alias gcmp='git checkout master && git pull'
+alias gcb='git checkout -b'
+alias gco='git checkout'
+alias gpom='git pull --no-edit origin master'
 alias gbr="git branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate"
 alias gbcopy="git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy"
 alias gbcopymessage="git rev-parse --abbrev-ref HEAD | sed 's/-/ /g' | tr -d '\n' | pbcopy"
-alias gcf='git_wrapper checkout `git branch --sort=-committerdate | fzf`'
+alias gcf='git checkout `git branch --sort=-committerdate | fzf`'
 alias gdb='git diff master..$(git branch --show-current) > ~/temp/out.patch'
 alias git-branch-current='git rev-parse --abbrev-ref HEAD'
 
@@ -76,7 +77,7 @@ alias gcp='git cherry-pick'
 alias gcpnc='git cherry-pick --no-commit'
 alias gct='git checkout --theirs'
 alias glg="git log --pretty=format:\"%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) [%an]\" --abbrev-commit -30"
-alias gp="git_wrapper pull"
+alias gp="git pull"
 alias gP="git push"
 # alias gpq="git push -u --no-verify" # git push quick
 alias gpq="SKIP=format-check git push" # skip the format-check part of our hooks
