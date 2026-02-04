@@ -22,7 +22,7 @@ return {
   dependencies = { "folke/snacks.nvim" },
   keys = {
     {
-      "<leader>p",
+      "<leader>R",
       function()
           Snacks.picker.yanky()
       end,
