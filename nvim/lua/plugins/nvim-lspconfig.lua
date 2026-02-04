@@ -74,6 +74,40 @@ return {
                         procMacro = {
                             enable = false
                         },
+
+                        -- below came from slack around 2/3/26, but seems to block bazel
+                        -- check = {
+                        --     overrideCommand = {
+                        --         "bazel",
+                        --         "run",
+                        --         "@rules_rust//tools/upstream_wrapper:cargo",
+                        --         "--@rules_rust//rust/settings:toolchain_generated_sysroot",
+                        --         "--",
+                        --         "check"
+                        --     }
+                        -- },
+                        -- cargo = {
+                        --     buildScripts = {
+                        --         overrideCommand = {
+                        --             "bazel",
+                        --             "run",
+                        --             "@rules_rust//tools/upstream_wrapper:cargo",
+                        --             "--@rules_rust//rust/settings:toolchain_generated_sysroot",
+                        --             "--",
+                        --             "check",
+                        --             "--quiet",
+                        --             "--workspace",
+                        --             "--message-format=json",
+                        --             "--all-targets",
+                        --             "--keep-going"
+                        --         }
+                        --     },
+                        --     autoreload = false,
+                        -- },
+                        -- restartServerOnConfigChange = true,
+                        -- workspace = {
+                        --     discoverConfig = vim.NIL,
+                        -- },
                     }
                 }
             }
