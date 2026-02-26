@@ -20,7 +20,7 @@ return {
                     "lua_ls",
                     "marksman",
                     "pylsp",
-                    "rust_analyzer",
+                    -- "rust_analyzer",
                     "yamlls",
                 },
             }
@@ -30,87 +30,87 @@ return {
             local capabilities = require('blink.cmp').get_lsp_capabilities()
 
             -- see also lazyvim rust-analyzer config: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/lang/rust.lua
-            lspconfig.rust_analyzer.setup {
-                -- cmd = { vim.fn.expand("~/.rustup/toolchains/1.78.0-aarch64-apple-darwin/bin/rust-analyzer") },
-                -- cmd = { vim.fn.expand("~/.cargo/bin/rust-analyzer") },
-                -- cmd = { "rustup", "run", "stable", "rust-analyzer" },
-                -- cmd = { vim.fn.expand("~/.rustup/toolchains/stable-aarch64-apple-darwin/bin/rust-analyzer") },
-                -- cmd = { vim.fn.expand("~/.local/bin/rust-analyzer") },
-                -- cmd = { vim.fn.expand("~/.cargo/bin/rust-analyzer-wrapper") },
-                cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/rust-analyzer") },
-                capabilities = capabilities,
-                -- Override root_dir to avoid cargo metadata
-                root_dir = function(fname)
-                    -- Just use git root or current directory
-                    return vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
-                    or vim.fn.getcwd()
-                end,
-                settings = {
-                    ['rust-analyzer'] = {
-                        -- Disable cargo check since Bazel is our build system
-                        checkOnSave = false,
-
-                        -- Don't try to load cargo metadata
-                        cargo = {
-                            buildScripts = {
-                                enable = false,
-                            },
-                        },
-
-                        -- Ignore build directories
-                        files = {
-                            excludeDirs = {
-                                "outputs",
-                                "bazel-out",
-                                "bazel-bin",
-                                "bazel-testlogs",
-                            },
-                        },
-
-                        diagnostics = {
-                            debounce = 150, -- to reduce frequent updates
-                            disabled = {"macro-error"},
-                        },
-                        procMacro = {
-                            enable = false
-                        },
-
-                        -- below came from slack around 2/3/26, but seems to block bazel
-                        -- check = {
-                        --     overrideCommand = {
-                        --         "bazel",
-                        --         "run",
-                        --         "@rules_rust//tools/upstream_wrapper:cargo",
-                        --         "--@rules_rust//rust/settings:toolchain_generated_sysroot",
-                        --         "--",
-                        --         "check"
-                        --     }
-                        -- },
-                        -- cargo = {
-                        --     buildScripts = {
-                        --         overrideCommand = {
-                        --             "bazel",
-                        --             "run",
-                        --             "@rules_rust//tools/upstream_wrapper:cargo",
-                        --             "--@rules_rust//rust/settings:toolchain_generated_sysroot",
-                        --             "--",
-                        --             "check",
-                        --             "--quiet",
-                        --             "--workspace",
-                        --             "--message-format=json",
-                        --             "--all-targets",
-                        --             "--keep-going"
-                        --         }
-                        --     },
-                        --     autoreload = false,
-                        -- },
-                        -- restartServerOnConfigChange = true,
-                        -- workspace = {
-                        --     discoverConfig = vim.NIL,
-                        -- },
-                    }
-                }
-            }
+            -- lspconfig.rust_analyzer.setup {
+            --     -- cmd = { vim.fn.expand("~/.rustup/toolchains/1.78.0-aarch64-apple-darwin/bin/rust-analyzer") },
+            --     -- cmd = { vim.fn.expand("~/.cargo/bin/rust-analyzer") },
+            --     -- cmd = { "rustup", "run", "stable", "rust-analyzer" },
+            --     -- cmd = { vim.fn.expand("~/.rustup/toolchains/stable-aarch64-apple-darwin/bin/rust-analyzer") },
+            --     -- cmd = { vim.fn.expand("~/.local/bin/rust-analyzer") },
+            --     -- cmd = { vim.fn.expand("~/.cargo/bin/rust-analyzer-wrapper") },
+            --     cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/rust-analyzer") },
+            --     capabilities = capabilities,
+            --     -- Override root_dir to avoid cargo metadata
+            --     root_dir = function(fname)
+            --         -- Just use git root or current directory
+            --         return vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
+            --         or vim.fn.getcwd()
+            --     end,
+            --     settings = {
+            --         ['rust-analyzer'] = {
+            --             -- Disable cargo check since Bazel is our build system
+            --             checkOnSave = false,
+            --
+            --             -- Don't try to load cargo metadata
+            --             cargo = {
+            --                 buildScripts = {
+            --                     enable = false,
+            --                 },
+            --             },
+            --
+            --             -- Ignore build directories
+            --             files = {
+            --                 excludeDirs = {
+            --                     "outputs",
+            --                     "bazel-out",
+            --                     "bazel-bin",
+            --                     "bazel-testlogs",
+            --                 },
+            --             },
+            --
+            --             diagnostics = {
+            --                 debounce = 150, -- to reduce frequent updates
+            --                 disabled = {"macro-error"},
+            --             },
+            --             procMacro = {
+            --                 enable = false
+            --             },
+            --
+            --             -- below came from slack around 2/3/26, but seems to block bazel
+            --             -- check = {
+            --             --     overrideCommand = {
+            --             --         "bazel",
+            --             --         "run",
+            --             --         "@rules_rust//tools/upstream_wrapper:cargo",
+            --             --         "--@rules_rust//rust/settings:toolchain_generated_sysroot",
+            --             --         "--",
+            --             --         "check"
+            --             --     }
+            --             -- },
+            --             -- cargo = {
+            --             --     buildScripts = {
+            --             --         overrideCommand = {
+            --             --             "bazel",
+            --             --             "run",
+            --             --             "@rules_rust//tools/upstream_wrapper:cargo",
+            --             --             "--@rules_rust//rust/settings:toolchain_generated_sysroot",
+            --             --             "--",
+            --             --             "check",
+            --             --             "--quiet",
+            --             --             "--workspace",
+            --             --             "--message-format=json",
+            --             --             "--all-targets",
+            --             --             "--keep-going"
+            --             --         }
+            --             --     },
+            --             --     autoreload = false,
+            --             -- },
+            --             -- restartServerOnConfigChange = true,
+            --             -- workspace = {
+            --             --     discoverConfig = vim.NIL,
+            --             -- },
+            --         }
+            --     }
+            -- }
 
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
