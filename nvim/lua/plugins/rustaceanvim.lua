@@ -19,38 +19,61 @@ return {
               sysroot = "discover",
               buildScripts = {
                 overrideCommand = {
-                  "bazel", "run", "@rules_rust//tools/upstream_wrapper:cargo",
+                  "bazel",
+                  "run",
+                  "@rules_rust//tools/upstream_wrapper:cargo",
                   "--@rules_rust//rust/settings:toolchain_generated_sysroot",
-                  "--", "check", "--quiet", "--workspace",
-                  "--message-format=json", "--all-targets", "--keep-going",
+                  "--",
+                  "check",
+                  "--quiet",
+                  "--workspace",
+                  "--message-format=json",
+                  "--all-targets",
+                  "--keep-going",
                   "--rustc_flags=--cfg=platform=\"arene-na-cdc\""
                 },
               },
             },
             check = {
               overrideCommand = {
-                "bazel", "run", "@rules_rust//tools/upstream_wrapper:cargo",
+                "bazel",
+                "run",
+                "@rules_rust//tools/upstream_wrapper:cargo",
                 "--@rules_rust//rust/settings:toolchain_generated_sysroot",
-                "--", "check",
+                "--",
+                "check",
                 "--rustc_flags=--cfg=platform=\"arene-na-cdc\""
               },
             },
             rustfmt = {
               overrideCommand = {
-                "bazel", "run", "@rules_rust//tools/upstream_wrapper:rustfmt",
+                "bazel",
+                "run",
+                "@rules_rust//tools/upstream_wrapper:rustfmt",
                 "--@rules_rust//rust/settings:toolchain_generated_sysroot",
-                "--", "--emit=files"
+                "--",
+                "--emit=files"
               },
             },
             files = {
               exclude = {
-                "output/", "bazel-p21-embedded/", "bazel-out/", "bazel-bin/**",
-                "bazel-testlogs/**", "bazel-*//**", ".git/**", "target/**",
+                "output/",
+                "bazel-p21-embedded/",
+                "bazel-out/",
+                "bazel-bin/**",
+                "bazel-testlogs/**",
+                "bazel-*//**",
+                ".git/**",
+                "target/**",
               },
               excludeDirs = {
-                "audio/examples", "cap/examples", "ml/examples",
-                "p21/p21-navigation/examples", "p21/p21-radio/benches",
-                "p21/p21-radio/examples", "vi/examples",
+                "audio/examples",
+                "cap/examples",
+                "ml/examples",
+                "p21/p21-navigation/examples",
+                "p21/p21-radio/benches",
+                "p21/p21-radio/examples",
+                "vi/examples",
               },
             },
           },
