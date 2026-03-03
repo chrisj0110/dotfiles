@@ -30,7 +30,6 @@ return {
                   "--message-format=json",
                   "--all-targets",
                   "--keep-going",
-                  "--rustc_flags=--cfg=platform=\"arene-na-cdc\""
                 },
               },
             },
@@ -42,7 +41,6 @@ return {
                 "--@rules_rust//rust/settings:toolchain_generated_sysroot",
                 "--",
                 "check",
-                "--rustc_flags=--cfg=platform=\"arene-na-cdc\""
               },
             },
             rustfmt = {
