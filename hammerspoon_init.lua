@@ -1,3 +1,19 @@
+hs.hotkey.bind({"alt"}, "1", function()
+    hs.application.launchOrFocus("Microsoft Outlook")
+end)
+
+hs.hotkey.bind({"alt"}, "2", function()
+    hs.application.launchOrFocus("Slack")
+end)
+
+hs.hotkey.bind({"alt"}, "3", function()
+    hs.application.launchOrFocus("Ghostty")
+end)
+
+hs.hotkey.bind({"alt"}, "4", function()
+    hs.application.launchOrFocus("Firefox")
+end)
+
 -- Hotkey: Option + 5
 local lastTeamsWin = nil
 
